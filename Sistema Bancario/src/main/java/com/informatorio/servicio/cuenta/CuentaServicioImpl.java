@@ -7,12 +7,12 @@ import com.informatorio.entrada.InputConsoleService;
 public class CuentaServicioImpl implements CuentaServicio {
 
     @Override
-    public void crearCuentaDeAhorro() {
+    public void crearCuentaDeAhorro(Cliente cliente) {
         System.out.print("Ingrese el monto inicial para la cuenta de ahorro: ");
         double montoInicial = InputConsoleService.getScanner().nextDouble();
         InputConsoleService.scanner.nextLine();
-
-        CuentaAhorro cuentaAhorro = new CuentaAhorro()
+        int numeroCuentaNuevo = cliente.getUltimoNumeroCuenta()+1;
+        CuentaAhorro cuentaAhorro = new CuentaAhorro(numeroCuentaNuevo,cliente,montoInicial,)
         CuentaAhorro cuentaAhorro = new CuentaDeAhorro(numeroUnicoCuentaActual++, cliente.getNombre(), montoInicial, 3.0);
         cliente.agregarCuenta(cuentaAhorro);
 
