@@ -23,5 +23,4 @@ public class Banco {
         cliente.agregarCuenta(cuenta);
     }
 
-
 }

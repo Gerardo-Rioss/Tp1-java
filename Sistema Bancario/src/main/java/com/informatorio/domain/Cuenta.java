@@ -1,7 +1,7 @@
 package com.informatorio.domain;
 
 public abstract class Cuenta {
-    private Long numeroCuenta;
+    private int numeroCuenta;
     private Cliente cliente;
     private Double saldo;
 
@@ -10,13 +10,13 @@ public abstract class Cuenta {
     public Cuenta() {
     }
 
-    public Cuenta(Long numeroCuenta, Cliente cliente, Double saldo, String tipo) {
+    public Cuenta(int numeroCuenta, Cliente cliente, Double saldo, String tipo) {
         this.numeroCuenta = numeroCuenta;
         this.cliente = cliente;
         this.saldo = saldo;
          }
 
-    public Long getNumeroCuenta() {
+    public int getNumeroCuenta() {
         return numeroCuenta;
     }
 
@@ -32,6 +32,8 @@ public abstract class Cuenta {
         this.saldo += monto;
     }
     public abstract void retirar(Double monto);
+
+
 
     public abstract String getTipo();
 }

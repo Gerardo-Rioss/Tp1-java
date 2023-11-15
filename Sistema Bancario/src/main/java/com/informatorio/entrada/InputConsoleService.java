@@ -1,13 +1,11 @@
 package com.informatorio.entrada;
-
 import java.util.Scanner;
-
-public class inputConsoleService {
+public class InputConsoleService {
     public static Scanner scanner;
 
     public static void createScanner(){
-        if( scanner == null){
-            scanner= new Scanner(System.in);
+        if(scanner == null){
+            scanner = new Scanner(System.in);
         }
     }
 
@@ -16,8 +14,8 @@ public class inputConsoleService {
         return scanner;
     }
 
-    public  static void closeScanner(){
-        if (scanner!=null){
+    public static void closeScanner(){
+        if(scanner != null){
             scanner.close();
         }
     }

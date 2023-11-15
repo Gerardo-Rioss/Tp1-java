@@ -7,7 +7,7 @@ public class CuentaCorriente extends Cuenta {
     public CuentaCorriente() {
     }
 
-    public CuentaCorriente(Long numeroCuenta, Cliente cliente, Double saldo, String tipo, Double limite) {
+    public CuentaCorriente(int numeroCuenta, Cliente cliente, Double saldo, String tipo, Double limite) {
         super(numeroCuenta, cliente, saldo, tipo);
         this.limite = limite;
     }

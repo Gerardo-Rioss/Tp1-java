@@ -6,7 +6,7 @@ public class CuentaAhorro extends Cuenta {
 
     public CuentaAhorro() {
     }
-    public CuentaAhorro(Long numeroCuenta, Cliente cliente, Double saldo, String tipo, Double tasa) {
+    public CuentaAhorro(int numeroCuenta, Cliente cliente, Double saldo, String tipo, Double tasa) {
         super(numeroCuenta, cliente, saldo, tipo);
         this.tasa = tasa;
     }

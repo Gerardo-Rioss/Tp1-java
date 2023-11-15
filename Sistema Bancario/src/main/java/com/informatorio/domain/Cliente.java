@@ -3,7 +3,7 @@ package com.informatorio.domain;
 import java.util.ArrayList;
 
 public class Cliente {
-    private Long numeroUnico;
+    private Integer numeroUnico;
     private String nombre;
     private String direccion;
     private ArrayList<Cuenta> cuentas;
@@ -11,14 +11,14 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(Long numeroUnico, String nombre, String direccion) {
+    public Cliente(Integer numeroUnico, String nombre, String direccion) {
         this.numeroUnico = numeroUnico;
         this.nombre = nombre;
         this.direccion = direccion;
         this.cuentas = new ArrayList<Cuenta>();
     }
 
-    public Long getNumeroUnico() {
+    public Integer getNumeroUnico() {
         return numeroUnico;
     }
 
@@ -40,7 +40,7 @@ public class Cliente {
     public void eliminarCuenta(Cuenta cuenta){
         this.cuentas.remove(cuenta);
     }
-    public double consultaSaldoTotal(){
+    public double getSaldoTotal(){
         double saldoTotal=0;
         for (Cuenta cuenta : this.cuentas){
             saldoTotal+=cuenta.getSaldo();
