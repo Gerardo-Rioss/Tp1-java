@@ -4,7 +4,7 @@ public class CuentaCorriente extends Cuenta {
     private Double limite;
     private static final String tipo= "Cuenta corriente";
 
-    public CuentaCorriente() {
+    public CuentaCorriente(int numeroCuentaNuevo, String nombre, double montoInicial, int i) {
     }
 
     public CuentaCorriente(int numeroCuenta, Cliente cliente, Double saldo, String tipo, Double limite) {

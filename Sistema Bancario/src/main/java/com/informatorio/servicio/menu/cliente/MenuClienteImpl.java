@@ -5,6 +5,7 @@ import com.informatorio.basededatos.BdClientes;
 import com.informatorio.domain.Cliente;
 import com.informatorio.entrada.InputConsoleService;
 import com.informatorio.servicio.cliente.ClienteServicio;
+import com.informatorio.servicio.cuenta.CuentaServicio;
 import com.informatorio.servicio.menu.principal.MenuPrincipal;
 
 import static com.informatorio.basededatos.BdClientes.clientes;
@@ -12,6 +13,7 @@ import static com.informatorio.basededatos.BdClientes.clientes;
 public class MenuClienteImpl implements MenuCliente {
     private MenuPrincipal menuPrincipal;
     private MenuCliente menuCliente;
+    private CuentaServicio cuentaServicio;
 
 
 
@@ -50,7 +52,7 @@ public class MenuClienteImpl implements MenuCliente {
 
             switch (opcion) {
                 case 1:
-                    //crearCuentaDeAhorro(scanner, cliente);
+                    cuentaServicio.crearCuentaDeAhorro(cliente);
                     break;
                 case 2:
                     //crearCuentaCorriente(scanner, cliente);
