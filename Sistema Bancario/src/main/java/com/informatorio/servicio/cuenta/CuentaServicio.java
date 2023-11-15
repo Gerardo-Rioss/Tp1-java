@@ -1,4 +1,7 @@
 package com.informatorio.servicio.cuenta;
+
+import com.informatorio.domain.Cliente;
+
 public interface CuentaServicio {
-    void crearCuentaDeAhorro();
+    void crearCuentaDeAhorro(Cliente cliente);
 }

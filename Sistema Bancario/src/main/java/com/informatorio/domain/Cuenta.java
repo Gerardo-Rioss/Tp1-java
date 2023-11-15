@@ -10,7 +10,7 @@ public abstract class Cuenta {
     public Cuenta() {
     }
 
-    public Cuenta(int numeroCuenta, Cliente cliente, Double saldo, String tipo) {
+    public Cuenta(int numeroCuenta, Cliente cliente, Double saldo) {
         this.numeroCuenta = numeroCuenta;
         this.cliente = cliente;
         this.saldo = saldo;

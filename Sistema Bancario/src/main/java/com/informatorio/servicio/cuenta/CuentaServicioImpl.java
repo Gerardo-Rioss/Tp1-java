@@ -12,16 +12,11 @@ public class CuentaServicioImpl implements CuentaServicio {
         double montoInicial = InputConsoleService.getScanner().nextDouble();
         InputConsoleService.scanner.nextLine();
         int numeroCuentaNuevo = cliente.getUltimoNumeroCuenta()+1;
-        CuentaAhorro cuentaAhorro = new CuentaAhorro(numeroCuentaNuevo,cliente,montoInicial,)
-        CuentaAhorro cuentaAhorro = new CuentaDeAhorro(numeroUnicoCuentaActual++, cliente.getNombre(), montoInicial, 3.0);
+        CuentaAhorro cuentaAhorro = new CuentaAhorro(numeroCuentaNuevo,cliente,montoInicial,6.5);
         cliente.agregarCuenta(cuentaAhorro);
 
-        System.out.println("Cuenta de ahorro creada exitosamente. Número único de cuenta: " + cuentaAhorro.getNumeroUnico());
+        System.out.println("Cuenta de ahorro creada exitosamente. Número único de cuenta: " + cuentaAhorro.getNumeroCuenta());
 
     }
-
-
-
-
 
 }

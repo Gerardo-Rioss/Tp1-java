@@ -4,10 +4,11 @@ public class CuentaAhorro extends Cuenta {
     private Double tasa;
     private static final String tipo= "Cuenta de ahorro";
 
+
     public CuentaAhorro() {
     }
-    public CuentaAhorro(int numeroCuenta, Cliente cliente, Double saldo, String tipo, Double tasa) {
-        super(numeroCuenta, cliente, saldo, tipo);
+    public CuentaAhorro(int numeroCuenta, Cliente cliente, Double saldo, Double tasa) {
+        super(numeroCuenta, cliente, saldo);
         this.tasa = tasa;
     }
 
