@@ -2,10 +2,12 @@ package com.informatorio.servicio.menu.principal;
 
 
 import com.informatorio.entrada.InputConsoleService;
+import com.informatorio.servicio.cliente.ClienteServicio;
 import com.informatorio.servicio.menu.cliente.MenuCliente;
 
 public class MenuPrincipalImpl implements MenuPrincipal {
     private MenuCliente menuCliente;
+    private ClienteServicio clienteServicio;
     @Override
     public void iniciar() {int opcion;
         do {
@@ -20,7 +22,7 @@ public class MenuPrincipalImpl implements MenuPrincipal {
 
             switch (opcion) {
                 case 1:
-                    menuCliente.registrarNuevoCliente();
+                    clienteServicio.registrarNuevoCliente();
                     break;
                 case 2:
                     menuCliente.ingresaComoCliente();
