@@ -14,11 +14,6 @@ public class MenuClienteImpl implements MenuCliente {
     private MenuPrincipal menuPrincipal;
     private MenuCliente menuCliente;
     private CuentaServicio cuentaServicio;
-
-
-
-
-
     @Override
     public void ingresaComoCliente() {
         System.out.print("Ingrese el número único del cliente: ");
@@ -55,7 +50,7 @@ public class MenuClienteImpl implements MenuCliente {
                     cuentaServicio.crearCuentaDeAhorro(cliente);
                     break;
                 case 2:
-                    //crearCuentaCorriente(scanner, cliente);
+                    cuentaServicio.crearCuentaCorriente(cliente);
                     break;
                 case 3:
                     System.out.println("Volviendo al menú principal.");
@@ -65,7 +60,6 @@ public class MenuClienteImpl implements MenuCliente {
                     System.out.println("Opción no válida. Por favor, seleccione nuevamente.");
                     break;
             }
-
         } while (opcion != 3);
     }
 }
