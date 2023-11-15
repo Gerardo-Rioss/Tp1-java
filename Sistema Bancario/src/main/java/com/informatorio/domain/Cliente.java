@@ -11,7 +11,7 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(Long numeroUnico, String nombre, String direccion, ArrayList<Cuenta> cuentas) {
+    public Cliente(Long numeroUnico, String nombre, String direccion) {
         this.numeroUnico = numeroUnico;
         this.nombre = nombre;
         this.direccion = direccion;
