@@ -3,11 +3,13 @@ package com.informatorio.servicio.menu.principal;
 
 import com.informatorio.entrada.InputConsoleService;
 import com.informatorio.servicio.cliente.ClienteServicio;
+import com.informatorio.servicio.cliente.ClienteServicioImpl;
 import com.informatorio.servicio.menu.cliente.MenuCliente;
+import com.informatorio.servicio.menu.cliente.MenuClienteImpl;
 
 public class MenuPrincipalImpl implements MenuPrincipal {
-    private MenuCliente menuCliente;
-    private ClienteServicio clienteServicio;
+    private  MenuCliente menuCliente ;
+    private final ClienteServicio clienteServicio= new ClienteServicioImpl();
     @Override
     public void iniciar() {int opcion;
         do {

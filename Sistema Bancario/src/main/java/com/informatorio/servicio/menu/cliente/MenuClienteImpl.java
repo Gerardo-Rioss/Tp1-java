@@ -6,14 +6,16 @@ import com.informatorio.domain.Cliente;
 import com.informatorio.entrada.InputConsoleService;
 import com.informatorio.servicio.cliente.ClienteServicio;
 import com.informatorio.servicio.cuenta.CuentaServicio;
+import com.informatorio.servicio.cuenta.CuentaServicioImpl;
 import com.informatorio.servicio.menu.principal.MenuPrincipal;
+import com.informatorio.servicio.menu.principal.MenuPrincipalImpl;
 
 import static com.informatorio.basededatos.BdClientes.clientes;
 
 public class MenuClienteImpl implements MenuCliente {
-    private MenuPrincipal menuPrincipal;
-    private MenuCliente menuCliente;
-    private CuentaServicio cuentaServicio;
+    private final MenuPrincipal menuPrincipal= new MenuPrincipalImpl();
+    private final MenuCliente menuCliente= new MenuClienteImpl();
+    private final CuentaServicio cuentaServicio= new CuentaServicioImpl();
     @Override
     public void ingresaComoCliente() {
         System.out.print("Ingrese el número único del cliente: ");
