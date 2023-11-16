@@ -15,7 +15,7 @@ public class Cliente {
         this.numeroUnico = numeroUnico;
         this.nombre = nombre;
         this.direccion = direccion;
-        this.cuentas = new ArrayList<Cuenta>();
+        this.cuentas = new ArrayList<>();
     }
 
     public Integer getNumeroUnico() {
@@ -30,9 +30,26 @@ public class Cliente {
         return direccion;
     }
 
+    public void setNumeroUnico(Integer numeroUnico) {
+        this.numeroUnico = numeroUnico;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public void setCuentas(ArrayList<Cuenta> cuentas) {
+        this.cuentas = cuentas;
+    }
+
     public ArrayList<Cuenta> getCuentas() {
         return cuentas;
     }
+
     public void agregarCuenta(Cuenta cuenta){
         this.cuentas.add(cuenta);
     }
@@ -40,6 +57,7 @@ public class Cliente {
     public void eliminarCuenta(Cuenta cuenta){
         this.cuentas.remove(cuenta);
     }
+
     public double getSaldoTotal(){
         double saldoTotal=0;
         for (Cuenta cuenta : this.cuentas){

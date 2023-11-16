@@ -1,16 +1,23 @@
 package com.informatorio.basededatos;
 
 import com.informatorio.domain.Cliente;
+
+import java.util.ArrayList;
 import java.util.List;
 public class BdClientes {
-    public static List<Cliente> clientes = initClients();
+    public static ArrayList<Cliente> clientes = initClients();
 
-    public static List<Cliente> initClients(){
+
+    public static ArrayList<Cliente> initClients(){
 
         Cliente cliente1 = new Cliente(1,"Rios Gerardo","Pasaje Castelli 4460");
         Cliente cliente2 = new Cliente(2,"Rios Raul","Alberdi 1950");
         Cliente cliente3 = new Cliente(3,"Gomez Carlos","Molina 160");
-        clientes = List.of(cliente1,cliente2, cliente3);
+        //clientes = ArrayList.of(cliente1,cliente2, cliente3);
+        ArrayList<Cliente> clientes = new ArrayList<>();
+        clientes.add(cliente1);
+        clientes.add(cliente2);
+        clientes.add(cliente3);
 
         return clientes;
     }
@@ -33,4 +40,6 @@ public class BdClientes {
         }
         return ultimoNumeroUnico;
     }
+
+
 }

@@ -8,7 +8,7 @@ import com.informatorio.servicio.menu.cliente.MenuCliente;
 import com.informatorio.servicio.menu.cliente.MenuClienteImpl;
 
 public class MenuPrincipalImpl implements MenuPrincipal {
-    private  MenuCliente menuCliente ;
+    private final MenuCliente menuCliente = new MenuClienteImpl();
     private final ClienteServicio clienteServicio= new ClienteServicioImpl();
     @Override
     public void iniciar() {int opcion;
@@ -27,7 +27,7 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                     clienteServicio.registrarNuevoCliente();
                     break;
                 case 2:
-                    menuCliente.ingresaComoCliente();
+                    menuCliente.ingresaNumeroCliente();
                     break;
                 case 3:
                     System.out.println("Saliendo del programa. ¡Hasta luego!");
@@ -39,6 +39,8 @@ public class MenuPrincipalImpl implements MenuPrincipal {
 
         } while (opcion != 3);
     }
+
+
 
 }
 

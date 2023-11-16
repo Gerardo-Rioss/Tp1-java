@@ -1,24 +1,28 @@
 package com.informatorio.domain;
 
 public class CuentaCorriente extends Cuenta {
-    private Double limite;
+    private Double limiteSobregiro;
     private static final String tipo= "Cuenta corriente";
 
     public CuentaCorriente(int numeroCuentaNuevo, String nombre, double montoInicial, int i) {
     }
 
-    public CuentaCorriente(int numeroCuenta, Cliente cliente, Double saldo,  Double limite) {
+    public CuentaCorriente(int numeroCuenta, Cliente cliente, Double saldo,  Double limiteSobregiro) {
         super(numeroCuenta, cliente, saldo);
-        this.limite = limite;
+        this.limiteSobregiro = limiteSobregiro;
     }
 
-    public Double getLimite() {
-        return limite;
+    public Double getLimiteSobregiro() {
+        return limiteSobregiro;
+    }
+
+    public void setLimiteSobregiro(Double limiteSobregiro) {
+        this.limiteSobregiro = limiteSobregiro;
     }
 
     @Override
     public void retirar(Double monto) {
-        if (monto <= this.getSaldo() + this.getLimite()) {
+        if (monto <= this.getSaldo() + this.getLimiteSobregiro()) {
             this.depositar(-monto);
         } else {
             System.out.println("No se puede retirar más que el límite de sobregiro");

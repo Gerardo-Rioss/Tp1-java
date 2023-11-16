@@ -1,5 +1,6 @@
 package com.informatorio.servicio.cliente;
 
+import com.informatorio.App;
 import com.informatorio.basededatos.BdClientes;
 import com.informatorio.domain.Cliente;
 import com.informatorio.entrada.InputConsoleService;
@@ -17,8 +18,11 @@ public class ClienteServicioImpl implements ClienteServicio {
         String direccion = InputConsoleService.getScanner().nextLine();
 
         int nuevoNumeroUnico = BdClientes.obtenerUltimoNumeroCliente()+1 ;
-        Cliente nuevoCliente = new Cliente(nuevoNumeroUnico,nombre,direccion);
-        clientes.add(nuevoCliente);
+        Cliente nuevoCliente = new Cliente();
+        nuevoCliente.setNumeroUnico(nuevoNumeroUnico);
+        nuevoCliente.setNombre(nombre);
+        nuevoCliente.setDireccion(direccion);
+        App.banco.registrarCliente(nuevoCliente);
 
         System.out.println("Cliente registrado exitosamente. Número único asignado: " + nuevoCliente.getNumeroUnico());
 

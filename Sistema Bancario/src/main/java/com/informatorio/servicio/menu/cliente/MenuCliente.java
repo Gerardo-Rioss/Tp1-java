@@ -4,6 +4,6 @@ import com.informatorio.domain.Cliente;
 
 public interface MenuCliente {
 
-    void ingresaComoCliente();
+    void ingresaNumeroCliente();
     void menuCliente(Cliente cliente);
 }

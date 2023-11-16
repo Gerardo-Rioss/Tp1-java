@@ -1,7 +1,7 @@
 package com.informatorio.domain;
 
 public class CuentaAhorro extends Cuenta {
-    private Double tasa;
+    private Double tasaInteres;
     private static final String tipo= "Cuenta de ahorro";
 
 
@@ -9,11 +9,15 @@ public class CuentaAhorro extends Cuenta {
     }
     public CuentaAhorro(int numeroCuenta, Cliente cliente, Double saldo, Double tasa) {
         super(numeroCuenta, cliente, saldo);
-        this.tasa = tasa;
+        this.tasaInteres = tasa;
     }
 
-    public Double getTasa() {
-        return tasa;
+    public Double getTasaInteres() {
+        return tasaInteres;
+    }
+
+    public void setTasaInteres(Double tasaInteres) {
+        this.tasaInteres = tasaInteres;
     }
 
     @Override
@@ -25,9 +29,9 @@ public class CuentaAhorro extends Cuenta {
         }
     }
 
-    public void calcularDepositarInteres(){
-        Double interes = this.getSaldo()* this.getTasa();
-        this.depositar(interes);
+    public void calcularInteres(){
+        Double intereses = this.getSaldo()* this.getTasaInteres()/100;
+        this.depositar(intereses);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.informatorio.servicio.menu.cliente;
 
 
+import com.informatorio.App;
 import com.informatorio.basededatos.BdClientes;
 import com.informatorio.domain.Cliente;
 import com.informatorio.entrada.InputConsoleService;
@@ -13,21 +14,20 @@ import com.informatorio.servicio.menu.principal.MenuPrincipalImpl;
 import static com.informatorio.basededatos.BdClientes.clientes;
 
 public class MenuClienteImpl implements MenuCliente {
-    private final MenuPrincipal menuPrincipal= new MenuPrincipalImpl();
-    private final MenuCliente menuCliente= new MenuClienteImpl();
+    //private final MenuPrincipal menuPrincipal= new MenuPrincipalImpl();
+    //private final MenuCliente menuCliente= new MenuClienteImpl();
     private final CuentaServicio cuentaServicio= new CuentaServicioImpl();
     @Override
-    public void ingresaComoCliente() {
+    public void ingresaNumeroCliente() {
         System.out.print("Ingrese el número único del cliente: ");
         int numeroUnicoCliente = InputConsoleService.getScanner().nextInt();
         InputConsoleService.scanner.nextLine();
-
-        Cliente cliente = BdClientes.getClientByNumeroUnico(numeroUnicoCliente);
-
-        if (cliente != null) {
-            menuCliente.menuCliente(cliente);
-        } else {
-            System.out.println("Cliente no encontrado. Por favor, verifique el número único.");
+        Cliente cliente= App.banco.getClientes().get(numeroUnicoCliente);
+        //Cliente cliente = BdClientes.getClientByNumeroUnico(numeroUnicoCliente);
+        if (cliente ==null){
+            System.out.print("No se econtró ningún cliente con ese número ");
+        }else{
+            menuCliente(cliente);
         }
     }
 
@@ -56,7 +56,7 @@ public class MenuClienteImpl implements MenuCliente {
                     break;
                 case 3:
                     System.out.println("Volviendo al menú principal.");
-                    menuPrincipal.iniciar();
+                   //menuPrincipal.iniciar();
                     break;
                 default:
                     System.out.println("Opción no válida. Por favor, seleccione nuevamente.");
