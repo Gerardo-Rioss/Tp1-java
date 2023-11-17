@@ -1,7 +1,6 @@
 package com.informatorio.domain;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Banco {
     private ArrayList<Cliente> clientes;
@@ -24,8 +23,14 @@ public class Banco {
     public void registrarCliente(Cliente cliente){
         this.clientes.add(cliente);
     }
-   
 
-
+    public Cliente getClienteByNumero(int numeroUnicoCliente){
+        for(Cliente cliente : this.clientes){
+            if (cliente.getNumeroUnico() == numeroUnicoCliente){
+                return cliente;
+            }
+        }
+        return null;
+    }
 
 }

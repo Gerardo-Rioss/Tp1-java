@@ -74,5 +74,13 @@ public class Cliente {
         }
         return ultimoNumeroCuentaActual;
     }
+    public void mostrarSaldoCuenta(){
+        System.out.println("===== Cuentas =====");
+        for (Cuenta cuenta : this.getCuentas()) {
+            System.out.println("NroCuenta: "+ cuenta.getNumeroCuenta()+", Tipo: "+cuenta.getTipo()+", Saldo: "+ cuenta.getSaldo() );
+        }
+        System.out.println("Saldo total: " + this.getSaldoTotal());
+        }
+
 }
 
