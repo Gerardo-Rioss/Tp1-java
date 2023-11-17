@@ -4,6 +4,7 @@ package com.informatorio.servicio.menu.cliente;
 import com.informatorio.App;
 import com.informatorio.basededatos.BdClientes;
 import com.informatorio.domain.Cliente;
+import com.informatorio.domain.Cuenta;
 import com.informatorio.entrada.InputConsoleService;
 import com.informatorio.servicio.cliente.ClienteServicio;
 import com.informatorio.servicio.cuenta.CuentaServicio;
@@ -23,12 +24,15 @@ public class MenuClienteImpl implements MenuCliente {
         int numeroUnicoCliente = InputConsoleService.getScanner().nextInt();
         InputConsoleService.scanner.nextLine();
         Cliente cliente= App.banco.getClientes().get(numeroUnicoCliente);
-        //Cliente cliente = BdClientes.getClientByNumeroUnico(numeroUnicoCliente);
+
         if (cliente ==null){
             System.out.print("No se econtró ningún cliente con ese número ");
         }else{
             menuCliente(cliente);
         }
+
+
+
     }
 
     @Override
@@ -38,7 +42,7 @@ public class MenuClienteImpl implements MenuCliente {
             System.out.println("===== Menú Cliente =====");
             System.out.println("Cliente: " + cliente.getNombre());
             System.out.println("Número único del cliente: " + cliente.getNumeroUnico());
-            System.out.println("Saldo total: " + cliente.getSaldoTotal());
+            mostrarSaldoCuentas(cliente);
             System.out.println("1. Crear cuenta de ahorro");
             System.out.println("2. Crear cuenta corriente");
             System.out.println("3. Volver al menú principal");
@@ -63,6 +67,16 @@ public class MenuClienteImpl implements MenuCliente {
                     break;
             }
         } while (opcion != 3);
+    }
+    private void mostrarSaldoCuentas(Cliente cliente){
+        if (cliente.getCuentas() != null) {
+            System.out.println("===== Cuentas =====");
+            for (Cuenta cuenta : cliente.getCuentas()) {
+
+                System.out.println("NroCuenta: "+ cuenta.getNumeroCuenta()+", Tipo: "+cuenta.getTipo()+", Saldo: "+ cuenta.getSaldo() );
+            }
+            System.out.println("Saldo total: " + cliente.getSaldoTotal());
+        }
     }
 }
 
