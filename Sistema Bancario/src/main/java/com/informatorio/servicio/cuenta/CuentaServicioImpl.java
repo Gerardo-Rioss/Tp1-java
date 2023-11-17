@@ -27,7 +27,7 @@ public class CuentaServicioImpl implements CuentaServicio {
         double montoInicial = InputConsoleService.getScanner().nextDouble();
         InputConsoleService.scanner.nextLine();
         int numeroCuentaNuevo = cliente.getUltimoNumeroCuenta() + 1;
-        CuentaCorriente cuentaCorriente = new CuentaCorriente(numeroCuentaNuevo, cliente.getNombre(), montoInicial, -1000);
+        CuentaCorriente cuentaCorriente = new CuentaCorriente(numeroCuentaNuevo,cliente,montoInicial,-1000.0);
         cliente.agregarCuenta(cuentaCorriente);
 
         System.out.println("Cuenta corriente creada exitosamente. Número único de cuenta: " + cuentaCorriente.getNumeroCuenta());

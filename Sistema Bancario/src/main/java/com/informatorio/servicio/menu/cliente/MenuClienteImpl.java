@@ -41,8 +41,6 @@ public class MenuClienteImpl implements MenuCliente {
         do {
             System.out.println("===== Menú Cliente =====");
             System.out.println("Cliente: " + cliente.getNombre());
-            //System.out.println("Número único del cliente: " + cliente.getNumeroUnico());
-            //mostrarSaldoCuentas(cliente);
             System.out.println("1. Gestionar Cuentas y consultar saldos");
             System.out.println("2. Realizar Depósito o Retiro de dinero");
             System.out.println("3. Volver al menú principal");

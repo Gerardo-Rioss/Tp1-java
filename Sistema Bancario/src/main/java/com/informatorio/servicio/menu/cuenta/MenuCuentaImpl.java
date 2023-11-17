@@ -6,14 +6,12 @@ import com.informatorio.servicio.cuenta.CuentaServicio;
 import com.informatorio.servicio.cuenta.CuentaServicioImpl;
 
 public class MenuCuentaImpl implements MenuCuenta {
-    private CuentaServicio cuentaServicio= new CuentaServicioImpl();
+    private final CuentaServicio cuentaServicio= new CuentaServicioImpl();
 
     @Override
     public void gestionarCuenta(Cliente cliente) {
-        System.out.println("Número único del cliente: " + cliente.getNumeroUnico());
-        cliente.mostrarSaldoCuenta();
-        int opcion;
 
+        int opcion;
         do {
             System.out.println("===== Gestionar Cuentas =====");
             System.out.println("Cliente: " + cliente.getNombre());

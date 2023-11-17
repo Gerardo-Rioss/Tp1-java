@@ -32,5 +32,24 @@ public class Banco {
         }
         return null;
     }
+    public int getUltimoNumeroCliente(){
+        int ultimoNumeroClienteActual=0;
+        for (Cliente cliente : this.clientes){
+            if (ultimoNumeroClienteActual<cliente.getNumeroUnico()){
+                ultimoNumeroClienteActual= cliente.getNumeroUnico();
+            }
+        }
+        return ultimoNumeroClienteActual;
+    }
+
+    public void mostrarClientes(){
+        StringBuilder listaClientes = new StringBuilder();
+        for (Cliente cliente : this.clientes) {
+            listaClientes.append(String.format("Numero:[%d] %s: %s,\n", cliente.getNumeroUnico(), cliente.getNombre(), cliente.getDireccion()));
+
+        }
+        System.out.println(listaClientes);
+
+    }
 
 }

@@ -16,8 +16,7 @@ public class ClienteServicioImpl implements ClienteServicio {
 
         System.out.print("Ingrese la dirección del cliente: ");
         String direccion = InputConsoleService.getScanner().nextLine();
-
-        int nuevoNumeroUnico = BdClientes.obtenerUltimoNumeroCliente()+1 ;
+        int nuevoNumeroUnico =App.banco.getUltimoNumeroCliente()+1;
         Cliente nuevoCliente = new Cliente();
         nuevoCliente.setNumeroUnico(nuevoNumeroUnico);
         nuevoCliente.setNombre(nombre);

@@ -5,8 +5,6 @@ public abstract class Cuenta {
     private Cliente cliente;
     private Double saldo;
 
-
-
     public Cuenta() {
     }
 

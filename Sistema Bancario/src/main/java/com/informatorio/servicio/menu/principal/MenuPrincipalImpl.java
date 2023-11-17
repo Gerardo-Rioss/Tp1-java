@@ -1,6 +1,7 @@
 package com.informatorio.servicio.menu.principal;
 
 
+import com.informatorio.App;
 import com.informatorio.entrada.InputConsoleService;
 import com.informatorio.servicio.cliente.ClienteServicio;
 import com.informatorio.servicio.cliente.ClienteServicioImpl;
@@ -16,7 +17,8 @@ public class MenuPrincipalImpl implements MenuPrincipal {
             System.out.println("===== Menú Principal =====");
             System.out.println("1. Registrar nuevo cliente");
             System.out.println("2. Ingresar como cliente");
-            System.out.println("3. Salir");
+            System.out.println("3. Mostrar Lista de Clientes");
+            System.out.println("4. Salir");
             System.out.print("Seleccione una opción: ");
 
             opcion = InputConsoleService.getScanner().nextInt();
@@ -30,6 +32,9 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                     menuCliente.ingresaNumeroCliente();
                     break;
                 case 3:
+                    App.banco.mostrarClientes();
+                    break;
+                case 4:
                     System.out.println("Saliendo del programa. ¡Hasta luego!");
                     break;
                 default:
@@ -37,7 +42,7 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                     break;
             }
 
-        } while (opcion != 3);
+        } while (opcion != 4);
     }
 
 

@@ -50,37 +50,51 @@ public class Cliente {
         return cuentas;
     }
 
-    public void agregarCuenta(Cuenta cuenta){
+    public void agregarCuenta(Cuenta cuenta) {
         this.cuentas.add(cuenta);
     }
 
-    public void eliminarCuenta(Cuenta cuenta){
+    public void eliminarCuenta(Cuenta cuenta) {
         this.cuentas.remove(cuenta);
     }
 
-    public double getSaldoTotal(){
-        double saldoTotal=0;
-        for (Cuenta cuenta : this.cuentas){
-            saldoTotal+=cuenta.getSaldo();
+    public double getSaldoTotal() {
+        double saldoTotal = 0;
+        for (Cuenta cuenta : this.cuentas) {
+            saldoTotal += cuenta.getSaldo();
         }
         return saldoTotal;
     }
-    public int getUltimoNumeroCuenta(){
-        int ultimoNumeroCuentaActual=0;
-        for (Cuenta cuenta : this.cuentas){
-            if (ultimoNumeroCuentaActual<cuenta.getNumeroCuenta()){
-                ultimoNumeroCuentaActual= cuenta.getNumeroCuenta();
+
+    public int getUltimoNumeroCuenta() {
+        try {
+            int ultimoNumeroCuentaActual = 0;
+            for (Cuenta cuenta : this.cuentas) {
+                if (ultimoNumeroCuentaActual < cuenta.getNumeroCuenta()) {
+                    ultimoNumeroCuentaActual = cuenta.getNumeroCuenta();
+                }
             }
+            return ultimoNumeroCuentaActual;
+        } catch (Exception e) {
+            System.out.println("ACA REVIENTA");
         }
-        return ultimoNumeroCuentaActual;
+        return 0;
     }
-    public void mostrarSaldoCuenta(){
-        System.out.println("===== Cuentas =====");
-        for (Cuenta cuenta : this.getCuentas()) {
-            System.out.println("NroCuenta: "+ cuenta.getNumeroCuenta()+", Tipo: "+cuenta.getTipo()+", Saldo: "+ cuenta.getSaldo() );
-        }
-        System.out.println("Saldo total: " + this.getSaldoTotal());
+
+    public void mostrarSaldoCuenta() {
+        try {
+            System.out.println("===== Cuentas =====");
+            for (Cuenta cuenta : this.getCuentas()) {
+                System.out.println("NroCuenta: " + cuenta.getNumeroCuenta() + ", Tipo: " + cuenta.getTipo() + ", Saldo: " + cuenta.getSaldo());
+            }
+            System.out.println("Saldo total: " + this.getSaldoTotal());
+        } catch (Exception e) {
+            System.out.println("No tiene ninguna cuenta asignada.-");
         }
 
+
+    }
 }
+
+
 
