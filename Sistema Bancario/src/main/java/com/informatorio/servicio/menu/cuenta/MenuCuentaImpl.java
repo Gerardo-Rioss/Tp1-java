@@ -6,7 +6,11 @@ import com.informatorio.servicio.cuenta.CuentaServicio;
 import com.informatorio.servicio.cuenta.CuentaServicioImpl;
 
 public class MenuCuentaImpl implements MenuCuenta {
-    private final CuentaServicio cuentaServicio= new CuentaServicioImpl();
+    private CuentaServicio cuentaServicio;
+
+    public MenuCuentaImpl(CuentaServicio cuentaServicio) {
+        this.cuentaServicio = cuentaServicio;
+    }
 
     @Override
     public void gestionarCuenta(Cliente cliente) {
@@ -17,14 +21,16 @@ public class MenuCuentaImpl implements MenuCuenta {
             System.out.println("Cliente: " + cliente.getNombre());
             System.out.println("Número único del cliente: " + cliente.getNumeroUnico());
             cliente.mostrarSaldoCuenta();
+            System.out.println("==================================================");
             System.out.println("1. Crear cuenta de ahorro");
             System.out.println("2. Crear cuenta corriente");
             System.out.println("3. Volver al menú anterior");
             System.out.print("Seleccione una opción: ");
 
+
             opcion = InputConsoleService.getScanner().nextInt();
             InputConsoleService.scanner.nextLine();
-
+            System.out.println("==================================================");
             switch (opcion) {
                 case 1:
                     cuentaServicio.crearCuentaDeAhorro(cliente);

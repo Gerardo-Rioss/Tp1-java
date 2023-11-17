@@ -24,6 +24,7 @@ public class ClienteServicioImpl implements ClienteServicio {
         App.banco.registrarCliente(nuevoCliente);
 
         System.out.println("Cliente registrado exitosamente. Número único asignado: " + nuevoCliente.getNumeroUnico());
+        System.out.println("==================================================");
 
     }
 

@@ -9,8 +9,14 @@ import com.informatorio.servicio.menu.cliente.MenuCliente;
 import com.informatorio.servicio.menu.cliente.MenuClienteImpl;
 
 public class MenuPrincipalImpl implements MenuPrincipal {
-    private final MenuCliente menuCliente = new MenuClienteImpl();
-    private final ClienteServicio clienteServicio= new ClienteServicioImpl();
+    private MenuCliente menuCliente;
+    private ClienteServicio clienteServicio;
+
+    public MenuPrincipalImpl(MenuCliente menuCliente, ClienteServicio clienteServicio) {
+        this.menuCliente = menuCliente;
+        this.clienteServicio = clienteServicio;
+    }
+
     @Override
     public void iniciar() {int opcion;
         do {
@@ -23,6 +29,7 @@ public class MenuPrincipalImpl implements MenuPrincipal {
 
             opcion = InputConsoleService.getScanner().nextInt();
             InputConsoleService.scanner.nextLine();
+            System.out.println("==================================================");
 
             switch (opcion) {
                 case 1:

@@ -19,7 +19,11 @@ import java.util.Optional;
 import static com.informatorio.basededatos.BdClientes.clientes;
 
 public class MenuClienteImpl implements MenuCliente {
-    private final MenuCuenta menuCuenta= new MenuCuentaImpl();
+    private MenuCuenta menuCuenta;
+
+    public MenuClienteImpl(MenuCuenta menuCuenta) {
+        this.menuCuenta = menuCuenta;
+    }
 
     @Override
     public void ingresaNumeroCliente() {
@@ -29,8 +33,11 @@ public class MenuClienteImpl implements MenuCliente {
         try {
             Cliente cliente = App.banco.getClienteByNumero(numeroUnicoCliente);
             menuCliente(cliente);
+            System.out.println("==================================================");
         } catch (NullPointerException e) {
             System.out.println("No se econtró ningún cliente con ese número: '" + numeroUnicoCliente +"'");
+            System.out.println();
+            System.out.println("==================================================");
         }
 
     }
@@ -41,6 +48,7 @@ public class MenuClienteImpl implements MenuCliente {
         do {
             System.out.println("===== Menú Cliente =====");
             System.out.println("Cliente: " + cliente.getNombre());
+            System.out.println("==================================================");
             System.out.println("1. Gestionar Cuentas y consultar saldos");
             System.out.println("2. Realizar Depósito o Retiro de dinero");
             System.out.println("3. Volver al menú principal");
