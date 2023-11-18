@@ -29,9 +29,7 @@ public abstract class Cuenta {
     public void depositar(Double monto){
         this.saldo += monto;
     }
-    public abstract void retirar(Double monto);
-
-
+    public abstract Boolean retirar(Double monto);
 
     public abstract String getTipo();
 }

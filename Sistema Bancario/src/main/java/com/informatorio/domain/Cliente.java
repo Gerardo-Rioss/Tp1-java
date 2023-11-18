@@ -78,19 +78,7 @@ public class Cliente {
 
     }
 
-    public void mostrarSaldoCuenta() {
-        try {
-            System.out.println("===== Cuentas =====");
-            for (Cuenta cuenta : this.getCuentas()) {
-                System.out.println("NroCuenta: " + cuenta.getNumeroCuenta() + ", Tipo: " + cuenta.getTipo() + ", Saldo: " + cuenta.getSaldo());
-            }
-            System.out.println("Saldo total: " + this.getSaldoTotal());
-        } catch (Exception e) {
-            System.out.println("No tiene ninguna cuenta asignada.-");
-        }
 
-
-    }
 }
 
 
