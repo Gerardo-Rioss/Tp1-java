@@ -7,13 +7,7 @@
     <list default="true" id="ce83c69a-8b3d-4f98-bf59-0ebb13ac3919" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/basededatos/BdClientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/basededatos/BdClientes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/domain/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/domain/Banco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/domain/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/domain/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/cliente/ClienteServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/cliente/ClienteServicio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/cliente/ClienteServicioImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/cliente/ClienteServicioImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/cliente/MenuCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/cliente/MenuCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/cliente/MenuClienteImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/cliente/MenuClienteImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/cuenta/CuentaServicioImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/cuenta/CuentaServicioImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/cuenta/MenuCuenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/cuenta/MenuCuenta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/cuenta/MenuCuentaImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/cuenta/MenuCuentaImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/principal/MenuPrincipalImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/principal/MenuPrincipalImpl.java" afterDir="false" />
@@ -26,8 +20,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -55,11 +50,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.informatorio.servicio.menu.operacionesBancarias" />
       <recent name="com.informatorio.servicio.menu.cuenta" />
       <recent name="com.informatorio.servicio.OperacionesBancarias" />
       <recent name="com.informatorio.servicio.GestorClientes" />
       <recent name="com.informatorio.servicio.cliente" />
-      <recent name="com.informatorio.servicio.cuenta" />
     </key>
   </component>
   <component name="RunManager">
@@ -109,31 +104,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/cuenta/MenuCuentaImpl.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/cuenta/CuentaServicioImpl.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/cuenta/CuentaServicioImpl.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/cuenta/CuentaServicioImpl.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

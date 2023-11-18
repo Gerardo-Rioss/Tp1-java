@@ -9,13 +9,16 @@ import com.informatorio.servicio.cliente.ClienteServicio;
 import com.informatorio.servicio.cliente.ClienteServicioImpl;
 import com.informatorio.servicio.menu.cliente.MenuCliente;
 import com.informatorio.servicio.menu.cliente.MenuClienteImpl;
+import com.informatorio.servicio.menu.cuenta.MenuCuenta;
 
 public class MenuPrincipalImpl implements MenuPrincipal {
     private MenuCliente menuCliente;
+    private MenuCuenta menuCuenta;
 
 
-    public MenuPrincipalImpl(MenuCliente menuCliente) {
+    public MenuPrincipalImpl(MenuCliente menuCliente, MenuCuenta menuCuenta) {
         this.menuCliente = menuCliente;
+        this.menuCuenta=menuCuenta;
 
     }
 
@@ -35,7 +38,7 @@ public class MenuPrincipalImpl implements MenuPrincipal {
             System.out.println("7. Eliminar Cuenta");
             System.out.println("8. Exportar CSV Cuentas Bancarias");
             System.out.println("=============================");
-            System.out.println("9. Salir");
+            System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
 
             opcion = InputConsoleService.getScanner().nextInt();
@@ -60,6 +63,7 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                     break;
                 case 6:
                     // crear cuenta
+                    menuCuenta.crearCuenta();
                     break;
                 case 7:
                     // eliminar cuenta
@@ -67,7 +71,7 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                 case 8:
                 //Exportar CSV Cuentas Bancarias
                 break ;
-                case 9:
+                case 0:
                     System.out.println("Saliendo del programa. ¡Hasta luego!");
                     break;
                 default:
@@ -75,7 +79,7 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                     break;
             }
 
-        } while (opcion != 9);
+        } while (opcion != 0);
     }
 
 

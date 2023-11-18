@@ -26,9 +26,9 @@ public class App
         InputConsoleService.createScanner();
         CuentaServicio cuentaServicio= new CuentaServicioImpl();
         ClienteServicio clienteServicio= new ClienteServicioImpl();
-        MenuCuenta menuCuenta = new MenuCuentaImpl();
         MenuCliente menuCliente = new MenuClienteImpl();
-        MenuPrincipal menuPrincipal= new MenuPrincipalImpl(menuCliente);
+        MenuCuenta menuCuenta = new MenuCuentaImpl(menuCliente);
+        MenuPrincipal menuPrincipal= new MenuPrincipalImpl(menuCliente, menuCuenta);
         menuPrincipal.iniciar();
         InputConsoleService.closeScanner();
     }
