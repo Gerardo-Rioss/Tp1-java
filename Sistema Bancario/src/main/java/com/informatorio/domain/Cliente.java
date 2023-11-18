@@ -67,7 +67,7 @@ public class Cliente {
     }
 
     public int getUltimoNumeroCuenta() {
-        try {
+
             int ultimoNumeroCuentaActual = 0;
             for (Cuenta cuenta : this.cuentas) {
                 if (ultimoNumeroCuentaActual < cuenta.getNumeroCuenta()) {
@@ -75,10 +75,7 @@ public class Cliente {
                 }
             }
             return ultimoNumeroCuentaActual;
-        } catch (Exception e) {
-            System.out.println("ACA REVIENTA"+ this.cuentas.size());
-        }
-        return 0;
+
     }
 
     public void mostrarSaldoCuenta() {

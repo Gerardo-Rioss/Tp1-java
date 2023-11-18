@@ -21,7 +21,7 @@ public class BdClientes {
         Cuenta cuenta2 = new CuentaCorriente(2,cliente1,500.0,500.0);
         cliente1.agregarCuenta(cuenta1);
         cliente1.agregarCuenta(cuenta2);
-        //clientes = ArrayList.of(cliente1,cliente2, cliente3);
+
         ArrayList<Cliente> clientes = new ArrayList<>();
         clientes.add(cliente1);
         clientes.add(cliente2);

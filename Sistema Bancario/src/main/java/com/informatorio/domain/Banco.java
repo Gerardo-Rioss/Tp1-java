@@ -42,14 +42,6 @@ public class Banco {
         return ultimoNumeroClienteActual;
     }
 
-    public void mostrarClientes(){
-        StringBuilder listaClientes = new StringBuilder();
-        for (Cliente cliente : this.clientes) {
-            listaClientes.append(String.format("Numero:[%d] %s: %s,\n", cliente.getNumeroUnico(), cliente.getNombre(), cliente.getDireccion()));
 
-        }
-        System.out.println(listaClientes);
-
-    }
 
 }

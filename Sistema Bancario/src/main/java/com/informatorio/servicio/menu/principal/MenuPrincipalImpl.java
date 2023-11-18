@@ -2,6 +2,8 @@ package com.informatorio.servicio.menu.principal;
 
 
 import com.informatorio.App;
+import com.informatorio.basededatos.BdClientes;
+import com.informatorio.domain.Banco;
 import com.informatorio.entrada.InputConsoleService;
 import com.informatorio.servicio.cliente.ClienteServicio;
 import com.informatorio.servicio.cliente.ClienteServicioImpl;
@@ -10,21 +12,30 @@ import com.informatorio.servicio.menu.cliente.MenuClienteImpl;
 
 public class MenuPrincipalImpl implements MenuPrincipal {
     private MenuCliente menuCliente;
-    private ClienteServicio clienteServicio;
 
-    public MenuPrincipalImpl(MenuCliente menuCliente, ClienteServicio clienteServicio) {
+
+    public MenuPrincipalImpl(MenuCliente menuCliente) {
         this.menuCliente = menuCliente;
-        this.clienteServicio = clienteServicio;
+
     }
 
     @Override
     public void iniciar() {int opcion;
         do {
             System.out.println("===== Menú Principal =====");
+            System.out.println("===== Clientes =====");
             System.out.println("1. Registrar nuevo cliente");
-            System.out.println("2. Ingresar como cliente");
-            System.out.println("3. Mostrar Lista de Clientes");
-            System.out.println("4. Salir");
+            System.out.println("2. Mostrar Lista de Clientes");
+            System.out.println("===== Operaciones Bancarias =====");
+            System.out.println("3. Depositar");
+            System.out.println("4. Retirar");
+            System.out.println("5. Consultar Saldo");
+            System.out.println("===== Cuentas Bancarias =====");
+            System.out.println("6. Crear Cuenta");
+            System.out.println("7. Eliminar Cuenta");
+            System.out.println("8. Exportar CSV Cuentas Bancarias");
+            System.out.println("=============================");
+            System.out.println("9. Salir");
             System.out.print("Seleccione una opción: ");
 
             opcion = InputConsoleService.getScanner().nextInt();
@@ -33,15 +44,30 @@ public class MenuPrincipalImpl implements MenuPrincipal {
 
             switch (opcion) {
                 case 1:
-                    clienteServicio.registrarNuevoCliente();
+                    menuCliente.registrarNuevoCliente();
                     break;
                 case 2:
-                    menuCliente.ingresaNumeroCliente();
+                    menuCliente.mostrarClientes();
                     break;
                 case 3:
-                    App.banco.mostrarClientes();
+                    // depositar
                     break;
                 case 4:
+                    // retirar
+                    break;
+                case 5:
+                    // consultar saldo
+                    break;
+                case 6:
+                    // crear cuenta
+                    break;
+                case 7:
+                    // eliminar cuenta
+                    break;
+                case 8:
+                //Exportar CSV Cuentas Bancarias
+                break ;
+                case 9:
                     System.out.println("Saliendo del programa. ¡Hasta luego!");
                     break;
                 default:
@@ -49,7 +75,7 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                     break;
             }
 
-        } while (opcion != 4);
+        } while (opcion != 9);
     }
 
 

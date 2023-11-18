@@ -19,61 +19,33 @@ import java.util.Optional;
 import static com.informatorio.basededatos.BdClientes.clientes;
 
 public class MenuClienteImpl implements MenuCliente {
-    private MenuCuenta menuCuenta;
-
-    public MenuClienteImpl(MenuCuenta menuCuenta) {
-        this.menuCuenta = menuCuenta;
-    }
-
     @Override
-    public void ingresaNumeroCliente() {
-        System.out.print("Ingrese el número único del cliente: ");
-        int numeroUnicoCliente = InputConsoleService.getScanner().nextInt();
-        InputConsoleService.scanner.nextLine();
-        try {
-            Cliente cliente = App.banco.getClienteByNumero(numeroUnicoCliente);
-            menuCliente(cliente);
-            System.out.println("==================================================");
-        } catch (NullPointerException e) {
-            System.out.println("No se econtró ningún cliente con ese número: '" + numeroUnicoCliente +"'");
-            System.out.println();
-            System.out.println("==================================================");
+    public void mostrarClientes() {
+        System.out.println("===== Lista de Clientes =====");
+        StringBuilder listaClientes = new StringBuilder();
+        for (Cliente cliente : BdClientes.clientes) {
+            listaClientes.append(String.format("Numero:[%d] %s: %s,\n", cliente.getNumeroUnico(), cliente.getNombre(), cliente.getDireccion()));
+
         }
-
+        System.out.println(listaClientes);
     }
 
     @Override
-    public void menuCliente(Cliente cliente) {
-        int opcion;
-        do {
-            System.out.println("===== Menú Cliente =====");
-            System.out.println("Cliente: " + cliente.getNombre());
-            System.out.println("==================================================");
-            System.out.println("1. Gestionar Cuentas y consultar saldos");
-            System.out.println("2. Realizar Depósito o Retiro de dinero");
-            System.out.println("3. Volver al menú principal");
-            System.out.print("Seleccione una opción: ");
+    public void registrarNuevoCliente() {
+        System.out.println("===== Registro de Nuevo Cliente =====");
+        System.out.print("Ingrese el nombre del cliente: ");
+        String nombre = InputConsoleService.getScanner().nextLine();
 
-            opcion = InputConsoleService.getScanner().nextInt();
-            InputConsoleService.scanner.nextLine();
-
-            switch (opcion) {
-                case 1:
-                    //cuentaServicio.crearCuentaDeAhorro(cliente);
-                    menuCuenta.gestionarCuenta(cliente);
-                    break;
-                case 2:
-                    //cuentaServicio.crearCuentaCorriente(cliente);
-                    break;
-                case 3:
-                    System.out.println("Volviendo al menú principal.");
-                   //menuPrincipal.iniciar();
-                    break;
-                default:
-                    System.out.println("Opción no válida. Por favor, seleccione nuevamente.");
-                    break;
-            }
-        } while (opcion != 3);
+        System.out.print("Ingrese la dirección del cliente: ");
+        String direccion = InputConsoleService.getScanner().nextLine();
+        int nuevoNumeroUnico =BdClientes.obtenerUltimoNumeroCliente()+1;
+        Cliente nuevoCliente = new Cliente();
+        nuevoCliente.setNumeroUnico(nuevoNumeroUnico);
+        nuevoCliente.setNombre(nombre);
+        nuevoCliente.setDireccion(direccion);
+        clientes.add(nuevoCliente);
+        System.out.println("Cliente registrado exitosamente. Número único asignado: " + nuevoCliente.getNumeroUnico());
+        System.out.println("==================================================");
     }
 
 }
