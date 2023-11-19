@@ -20,6 +20,7 @@ import java.util.Optional;
 import static com.informatorio.basededatos.BdClientes.clientes;
 
 public class MenuClienteImpl implements MenuCliente {
+    public static final String MENSAJE_INGRESAR_CLIENTE_TEMPLATE = "Ingrese el numero de cliente: ";
     @Override
     public void mostrarClientes() {
         System.out.println("===== Lista de Clientes =====");
@@ -36,7 +37,6 @@ public class MenuClienteImpl implements MenuCliente {
         System.out.println("===== Registro de Nuevo Cliente =====");
         System.out.print("Ingrese el nombre del cliente: ");
         String nombre = InputConsoleService.getScanner().nextLine();
-
         System.out.print("Ingrese la dirección del cliente: ");
         String direccion = InputConsoleService.getScanner().nextLine();
         int nuevoNumeroUnico =BdClientes.obtenerUltimoNumeroCliente()+1;
@@ -49,6 +49,16 @@ public class MenuClienteImpl implements MenuCliente {
         System.out.println("Cliente registrado exitosamente. Número único asignado: " + nuevoCliente.getNumeroUnico());
         System.out.println("==================================================");
     }
+
+    @Override
+    public Optional<Cliente> seleccionarCliente() {
+        mostrarClientes();
+        System.out.println(MENSAJE_INGRESAR_CLIENTE_TEMPLATE);
+        int numeroCliente =InputConsoleService.getScanner().nextInt();
+        Optional<Cliente> cliente= Optional.ofNullable(BdClientes.getClientByNumeroUnico(numeroCliente));
+        return Optional.empty();
+    }
+
 
 }
 

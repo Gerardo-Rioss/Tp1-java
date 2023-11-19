@@ -3,15 +3,10 @@ package com.informatorio.servicio.menu.operacionesBancarias;
 import com.informatorio.domain.Cuenta;
 import com.informatorio.domain.Cliente;
 public class MenuOperacionesBancariasImpl implements MenuOperacionesBancarias {
-    @Override
-    public void retirar(double monto) {
 
-    }
 
-    @Override
-    public void depositar(double monto) {
 
-    }
+
 
     @Override
     public void consultarSaldos(Cliente cliente) {
