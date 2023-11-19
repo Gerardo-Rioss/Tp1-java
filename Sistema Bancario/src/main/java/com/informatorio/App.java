@@ -11,6 +11,8 @@ import com.informatorio.servicio.menu.cliente.MenuCliente;
 import com.informatorio.servicio.menu.cliente.MenuClienteImpl;
 import com.informatorio.servicio.menu.cuenta.MenuCuenta;
 import com.informatorio.servicio.menu.cuenta.MenuCuentaImpl;
+import com.informatorio.servicio.menu.operacionesBancarias.MenuOperacionesBancarias;
+import com.informatorio.servicio.menu.operacionesBancarias.MenuOperacionesBancariasImpl;
 import com.informatorio.servicio.menu.principal.MenuPrincipal;
 import com.informatorio.servicio.menu.principal.MenuPrincipalImpl;
 
@@ -26,9 +28,10 @@ public class App
         InputConsoleService.createScanner();
         CuentaServicio cuentaServicio= new CuentaServicioImpl();
         ClienteServicio clienteServicio= new ClienteServicioImpl();
+        MenuOperacionesBancarias menuOperacionesBancarias= new MenuOperacionesBancariasImpl();
         MenuCliente menuCliente = new MenuClienteImpl();
-        MenuCuenta menuCuenta = new MenuCuentaImpl(menuCliente);
-        MenuPrincipal menuPrincipal= new MenuPrincipalImpl(menuCliente, menuCuenta);
+        MenuCuenta menuCuenta = new MenuCuentaImpl(menuCliente, menuOperacionesBancarias);
+        MenuPrincipal menuPrincipal= new MenuPrincipalImpl(menuCliente, menuCuenta, menuOperacionesBancarias);
         menuPrincipal.iniciar();
         InputConsoleService.closeScanner();
     }

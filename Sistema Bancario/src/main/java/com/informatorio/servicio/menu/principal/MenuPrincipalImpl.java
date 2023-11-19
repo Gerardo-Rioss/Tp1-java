@@ -4,21 +4,25 @@ package com.informatorio.servicio.menu.principal;
 import com.informatorio.App;
 import com.informatorio.basededatos.BdClientes;
 import com.informatorio.domain.Banco;
+import com.informatorio.domain.Cliente;
 import com.informatorio.entrada.InputConsoleService;
 import com.informatorio.servicio.cliente.ClienteServicio;
 import com.informatorio.servicio.cliente.ClienteServicioImpl;
 import com.informatorio.servicio.menu.cliente.MenuCliente;
 import com.informatorio.servicio.menu.cliente.MenuClienteImpl;
 import com.informatorio.servicio.menu.cuenta.MenuCuenta;
+import com.informatorio.servicio.menu.operacionesBancarias.MenuOperacionesBancarias;
 
 public class MenuPrincipalImpl implements MenuPrincipal {
     private MenuCliente menuCliente;
     private MenuCuenta menuCuenta;
+    private MenuOperacionesBancarias menuOperacionesBancarias;
 
 
-    public MenuPrincipalImpl(MenuCliente menuCliente, MenuCuenta menuCuenta) {
+    public MenuPrincipalImpl(MenuCliente menuCliente, MenuCuenta menuCuenta, MenuOperacionesBancarias menuOperacionesBancarias) {
         this.menuCliente = menuCliente;
         this.menuCuenta=menuCuenta;
+        this.menuOperacionesBancarias=menuOperacionesBancarias;
 
     }
 
@@ -59,6 +63,10 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                     // retirar
                     break;
                 case 5:
+                    System.out.println("Ingrese nro de cliente: ");
+                    int nroCliente= InputConsoleService.getScanner().nextInt();
+                    Cliente cliente = BdClientes.getClientByNumeroUnico(nroCliente);
+                    menuOperacionesBancarias.consultarSaldos(cliente);
                     // consultar saldo
                     break;
                 case 6:

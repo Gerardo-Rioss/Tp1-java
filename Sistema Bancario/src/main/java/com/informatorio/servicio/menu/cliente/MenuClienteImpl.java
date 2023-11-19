@@ -14,6 +14,7 @@ import com.informatorio.servicio.menu.cuenta.MenuCuentaImpl;
 import com.informatorio.servicio.menu.principal.MenuPrincipal;
 import com.informatorio.servicio.menu.principal.MenuPrincipalImpl;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import static com.informatorio.basededatos.BdClientes.clientes;
@@ -43,6 +44,7 @@ public class MenuClienteImpl implements MenuCliente {
         nuevoCliente.setNumeroUnico(nuevoNumeroUnico);
         nuevoCliente.setNombre(nombre);
         nuevoCliente.setDireccion(direccion);
+        nuevoCliente.setCuentas(new ArrayList<Cuenta>());
         clientes.add(nuevoCliente);
         System.out.println("Cliente registrado exitosamente. Número único asignado: " + nuevoCliente.getNumeroUnico());
         System.out.println("==================================================");

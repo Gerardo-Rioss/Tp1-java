@@ -15,6 +15,8 @@ public class MenuOperacionesBancariasImpl implements MenuOperacionesBancarias {
 
     @Override
     public void consultarSaldos(Cliente cliente) {
+        System.out.println("===== Datos Cliente =====");
+        System.out.println("Nro CLiente: "+ cliente.getNumeroUnico()+", Nombre: "+ cliente.getNombre());
         try {
             System.out.println("===== Cuentas =====");
             for (Cuenta cuenta : cliente.getCuentas()) {
@@ -24,6 +26,8 @@ public class MenuOperacionesBancariasImpl implements MenuOperacionesBancarias {
         } catch (Exception e) {
             System.out.println("No tiene ninguna cuenta asignada.-");
         }
+        System.out.println();
+
 
     }
 }

@@ -60,6 +60,7 @@ public class Cliente {
 
     public double getSaldoTotal() {
         double saldoTotal = 0;
+
         for (Cuenta cuenta : this.cuentas) {
             saldoTotal += cuenta.getSaldo();
         }
@@ -67,14 +68,17 @@ public class Cliente {
     }
 
     public int getUltimoNumeroCuenta() {
-
-            int ultimoNumeroCuentaActual = 0;
+        int ultimoNumeroCuentaActual = 0;
+        try {
             for (Cuenta cuenta : this.cuentas) {
-                if (ultimoNumeroCuentaActual < cuenta.getNumeroCuenta()) {
+                if (ultimoNumeroCuentaActual <= cuenta.getNumeroCuenta()) {
                     ultimoNumeroCuentaActual = cuenta.getNumeroCuenta();
                 }
             }
             return ultimoNumeroCuentaActual;
+        } catch(NullPointerException e){
+            return ultimoNumeroCuentaActual;
+        }
 
     }
 
