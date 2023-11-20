@@ -10,6 +10,6 @@ public interface MenuCliente {
     String ingresarNombre();
     String ingresarDireccion();
     public int ingreseNroCuenta();
-    public Double ingreseMonto();
-
+    public Double ingreseMontoDepositar();
+    public Double ingreseMontoInicial();
 }

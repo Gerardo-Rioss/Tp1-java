@@ -1,32 +1,22 @@
 package com.informatorio.servicio.menu.principal;
 
 
-import com.informatorio.App;
-import com.informatorio.basededatos.BdClientes;
-import com.informatorio.domain.Banco;
-import com.informatorio.domain.Cliente;
+
 import com.informatorio.entrada.InputConsoleService;
 import com.informatorio.servicio.cliente.ClienteServicio;
-import com.informatorio.servicio.cliente.ClienteServicioImpl;
 import com.informatorio.servicio.cuenta.CuentaServicio;
 import com.informatorio.servicio.menu.cliente.MenuCliente;
-import com.informatorio.servicio.menu.cliente.MenuClienteImpl;
-import com.informatorio.servicio.menu.cuenta.MenuCuenta;
-import com.informatorio.servicio.menu.operacionesBancarias.MenuOperacionesBancarias;
-
-import java.util.Optional;
 
 public class MenuPrincipalImpl implements MenuPrincipal {
     private MenuCliente menuCliente;
-    private MenuCuenta menuCuenta;
+
 
     private ClienteServicio clienteServicio;
     private CuentaServicio cuentaServicio;
 
 
-    public MenuPrincipalImpl(MenuCliente menuCliente, MenuCuenta menuCuenta,  ClienteServicio clienteServicio, CuentaServicio cuentaServicio) {
+    public MenuPrincipalImpl(MenuCliente menuCliente,   ClienteServicio clienteServicio, CuentaServicio cuentaServicio) {
         this.menuCliente = menuCliente;
-        this.menuCuenta=menuCuenta;
         this.clienteServicio= clienteServicio;
         this.cuentaServicio= cuentaServicio;
 
@@ -70,19 +60,28 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                     break;
                 case 3:
                     // depositar
-                    cuentaServicio.depositar(menuCliente.seleccionarCliente(),menuCliente.ingreseMonto(),menuCliente.ingreseNroCuenta());
+                    cuentaServicio.depositar(menuCliente.seleccionarCliente(),menuCliente.ingreseMontoDepositar(),menuCliente.ingreseNroCuenta());
                     break;
                 case 4:
                     // retirar
                     break;
                 case 5:
                     //Consultar Saldo
-                    Cliente cliente = menuCliente.seleccionarCliente();
-                    clienteServicio.consultaSaldosCuentasTotal(cliente);
+                    clienteServicio.consultaSaldosCuentasTotal(menuCliente.seleccionarCliente());
                     break;
                 case 6:
                     //Crear Cuenta
-                    menuCuenta.crearCuenta();
+                    int tipo = menuCliente.seleccionarTipoCuenta();
+                    if(tipo==1){
+                        cuentaServicio.crearCuentaCorriente(menuCliente.seleccionarCliente(),menuCliente.ingreseMontoInicial());
+                    } else if (tipo == 2) {
+                        cuentaServicio.crearCuentaAhorro(menuCliente.seleccionarCliente(),menuCliente.ingreseMontoInicial());
+                    }else {
+                        System.out.println("Opcion de cuenta invalida.-");
+                    }
+
+
+
                     break;
                 case 7:
                     // eliminar cuenta

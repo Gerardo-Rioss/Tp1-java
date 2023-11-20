@@ -4,7 +4,7 @@ package com.informatorio.servicio.menu.cliente;
 import com.informatorio.basededatos.BdClientes;
 import com.informatorio.domain.Cliente;
 import com.informatorio.entrada.InputConsoleService;
-import com.informatorio.servicio.cliente.ClienteServicio;
+
 
 public class MenuClienteImpl implements MenuCliente {
     public static final String MENSAJE_INGRESE_NOMBRE_TEMPLATE="Ingrese el nombre del cliente: ";
@@ -12,6 +12,7 @@ public class MenuClienteImpl implements MenuCliente {
     public static final String MENSAJE_INGRESAR_CLIENTE_TEMPLATE = "Ingrese el numero de cliente: ";
     public static final String MENSAJE_INGRESE_NUMERO_CUENTA_TEMPLATE="Ingrese el numero de cuenta en la cual quierer depositar: ";
     public static final String MENSAJE_INGRESE_MONTO_DEPOSITAR_TEMPLATE="Ingrese el monto a depositar: ";
+    public static final String MENSAJE_INGRESE_MONTO_INICIAL_TEMPLATE="Ingrese el monto inicial para la cuenta: ";
 
     @Override
     public void mostrarClientes() {
@@ -64,8 +65,14 @@ public class MenuClienteImpl implements MenuCliente {
     }
 
     @Override
-    public Double ingreseMonto() {
+    public Double ingreseMontoDepositar() {
         System.out.print(MENSAJE_INGRESE_MONTO_DEPOSITAR_TEMPLATE);
+        return InputConsoleService.getScanner().nextDouble();
+    }
+
+    @Override
+    public Double ingreseMontoInicial() {
+        System.out.print(MENSAJE_INGRESE_MONTO_INICIAL_TEMPLATE);
         return InputConsoleService.getScanner().nextDouble();
     }
 

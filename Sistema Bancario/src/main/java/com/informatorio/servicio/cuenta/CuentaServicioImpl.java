@@ -4,9 +4,8 @@ import com.informatorio.domain.Cliente;
 import com.informatorio.domain.Cuenta;
 import com.informatorio.domain.CuentaAhorro;
 import com.informatorio.domain.CuentaCorriente;
-import com.informatorio.entrada.InputConsoleService;
-import com.informatorio.servicio.cliente.ClienteServicio;
-import com.informatorio.servicio.menu.operacionesBancarias.MenuOperacionesBancarias;
+
+
 
 public class CuentaServicioImpl implements CuentaServicio {
 
@@ -24,15 +23,12 @@ public class CuentaServicioImpl implements CuentaServicio {
             return 1;
         }
     }
-
     @Override
     public void crearCuentaCorriente(Cliente cliente, Double montoInicial) {
         int nuevoNumeroCuenta = obtenerNuevoNumeroCuenta(cliente);
         CuentaCorriente nuevaCuentaCorriente = new CuentaCorriente(nuevoNumeroCuenta,cliente,montoInicial,5000.0);
         cliente.agregarCuenta(nuevaCuentaCorriente);
         System.out.println("Cuenta de ahorro creada exitosamente. Número único de cuenta: " + nuevaCuentaCorriente.getNumeroCuenta());
-
-
     }
 
     @Override
@@ -41,8 +37,6 @@ public class CuentaServicioImpl implements CuentaServicio {
         CuentaAhorro cuentaAhorro = new CuentaAhorro(numeroCuentaNuevo, cliente, montoInicial, 6.5);
         cliente.agregarCuenta(cuentaAhorro);
         System.out.println("Cuenta de ahorro creada exitosamente. Número único de cuenta: " + cuentaAhorro.getNumeroCuenta());
-
-
     }
 
     @Override
