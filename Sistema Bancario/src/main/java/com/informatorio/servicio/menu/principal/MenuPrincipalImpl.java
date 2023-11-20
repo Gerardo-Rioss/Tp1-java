@@ -13,16 +13,20 @@ import com.informatorio.servicio.menu.cliente.MenuClienteImpl;
 import com.informatorio.servicio.menu.cuenta.MenuCuenta;
 import com.informatorio.servicio.menu.operacionesBancarias.MenuOperacionesBancarias;
 
+import java.util.Optional;
+
 public class MenuPrincipalImpl implements MenuPrincipal {
     private MenuCliente menuCliente;
     private MenuCuenta menuCuenta;
     private MenuOperacionesBancarias menuOperacionesBancarias;
+    private ClienteServicio clienteServicio;
 
 
-    public MenuPrincipalImpl(MenuCliente menuCliente, MenuCuenta menuCuenta, MenuOperacionesBancarias menuOperacionesBancarias) {
+    public MenuPrincipalImpl(MenuCliente menuCliente, MenuCuenta menuCuenta, MenuOperacionesBancarias menuOperacionesBancarias, ClienteServicio clienteServicio) {
         this.menuCliente = menuCliente;
         this.menuCuenta=menuCuenta;
         this.menuOperacionesBancarias=menuOperacionesBancarias;
+        this.clienteServicio= clienteServicio;
 
     }
 
@@ -56,7 +60,7 @@ public class MenuPrincipalImpl implements MenuPrincipal {
             switch (opcion) {
                 case 1:
                     //Registrar nuevo cliente
-                    menuCliente.registrarNuevoCliente();
+                    menuCliente.ingresarNuevoCliente();
                     break;
                 case 2:
                     //Mostrar Lista de Clientes
@@ -64,15 +68,14 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                     break;
                 case 3:
                     // depositar
+                    menuOperacionesBancarias.ingreseDatosDeposito();
                     break;
                 case 4:
                     // retirar
                     break;
                 case 5:
                     //Consultar Saldo
-                    System.out.println("Ingrese nro de cliente: ");
-                    int nroCliente= InputConsoleService.getScanner().nextInt();
-                    Cliente cliente = BdClientes.getClientByNumeroUnico(nroCliente);
+                    Cliente cliente = menuCliente.seleccionarCliente();
                     menuOperacionesBancarias.consultarSaldos(cliente);
                     break;
                 case 6:

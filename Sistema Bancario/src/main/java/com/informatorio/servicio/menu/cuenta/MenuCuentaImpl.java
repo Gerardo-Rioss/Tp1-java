@@ -13,47 +13,44 @@ import com.informatorio.servicio.menu.operacionesBancarias.MenuOperacionesBancar
 public class MenuCuentaImpl implements MenuCuenta {
     private MenuCliente menuCliente;
     private MenuOperacionesBancarias menuOperacionesBancarias;
+    private CuentaServicio cuentaServicio;
+    private MenuCuenta menuCuenta;
 
-    public MenuCuentaImpl(MenuCliente menuCliente, MenuOperacionesBancarias menuOperacionesBancarias) {
+
+    public MenuCuentaImpl(MenuCliente menuCliente, MenuOperacionesBancarias menuOperacionesBancarias, CuentaServicio cuentaServicio) {
         this.menuCliente = menuCliente;
         this.menuOperacionesBancarias = menuOperacionesBancarias;
+        this.cuentaServicio = cuentaServicio;
     }
 
     @Override
     public void crearCuenta() {
         menuCliente.mostrarClientes();
-        System.out.print("Ingrese el numero de Cliente: ");
-        int numeroCliente = InputConsoleService.getScanner().nextInt();
-        Cliente cliente = BdClientes.getClientByNumeroUnico(numeroCliente);
-        System.out.println();
+        Cliente cliente = menuCliente.seleccionarCliente();
         menuOperacionesBancarias.consultarSaldos(cliente);
-        System.out.println();
-        System.out.println("Tipo de cuenta: ");
-        System.out.println("1. Cuenta Corriente");
-        System.out.println("2. Caja de Ahorro");
-        System.out.println("Ingrese una opcion");
-        int opcTipoCuenta =InputConsoleService.getScanner().nextInt();
+        int opcTipoCuenta = menuCuenta.seleccionarTipoCuenta();
         System.out.print("Ingrese el monto inicial para la cuenta: ");
         double montoInicial = InputConsoleService.getScanner().nextDouble();
-        InputConsoleService.scanner.nextLine();
-        int numeroCuentaNuevo = cliente.getUltimoNumeroCuenta() + 1;
         if (opcTipoCuenta ==1){
-            //Crear cuenta Corriente
-            CuentaCorriente cuentaCorriente = new CuentaCorriente(numeroCuentaNuevo, cliente, montoInicial, 5000.0);
-            cliente.agregarCuenta(cuentaCorriente);
-            System.out.println("Cuenta de ahorro creada exitosamente. Número único de cuenta: " + cuentaCorriente.getNumeroCuenta());
+            cuentaServicio.crearCuentaCorriente(cliente, montoInicial);
             menuOperacionesBancarias.consultarSaldos(cliente);
-
-        }else if(opcTipoCuenta ==2){
-            //Crear Caja de ahorro
-            CuentaAhorro cuentaAhorro = new CuentaAhorro(numeroCuentaNuevo, cliente, montoInicial, 6.5);
-            cliente.agregarCuenta(cuentaAhorro);
-            System.out.println("Cuenta de ahorro creada exitosamente. Número único de cuenta: " + cuentaAhorro.getNumeroCuenta());
+        } else if (opcTipoCuenta == 2) {
+            cuentaServicio.crearCuentaAhorro(cliente, montoInicial);
             menuOperacionesBancarias.consultarSaldos(cliente);
         }else{
             System.out.println("Opcion de cuenta invalida.-");
         }
 
+    }
+
+    @Override
+    public int seleccionarTipoCuenta() {
+        System.out.println("Tipo de cuenta: ");
+        System.out.println("1. Cuenta Corriente");
+        System.out.println("2. Caja de Ahorro");
+        System.out.println("Ingrese una opcion");
+        int opcTipoCuenta =InputConsoleService.getScanner().nextInt();
+        return opcTipoCuenta;
     }
 }
 

@@ -38,7 +38,7 @@ public class BdClientes {
         }
         return null;
     }
-    public static Integer obtenerUltimoNumeroCliente(){
+    public static Integer obtenerNuevoNumeroCliente(){
         int ultimoNumeroUnico=1;
         for (Cliente cliente : clientes){
             int numeroUnicoCliente = cliente.getNumeroUnico();
@@ -46,7 +46,7 @@ public class BdClientes {
                 ultimoNumeroUnico=numeroUnicoCliente;
             }
         }
-        return ultimoNumeroUnico;
+        return ultimoNumeroUnico+1;
     }
 
 

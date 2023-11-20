@@ -26,12 +26,13 @@ public class App
     {
         BdClientes.initClients();
         InputConsoleService.createScanner();
-        CuentaServicio cuentaServicio= new CuentaServicioImpl();
+
         ClienteServicio clienteServicio= new ClienteServicioImpl();
-        MenuOperacionesBancarias menuOperacionesBancarias= new MenuOperacionesBancariasImpl();
-        MenuCliente menuCliente = new MenuClienteImpl();
-        MenuCuenta menuCuenta = new MenuCuentaImpl(menuCliente, menuOperacionesBancarias);
-        MenuPrincipal menuPrincipal= new MenuPrincipalImpl(menuCliente, menuCuenta, menuOperacionesBancarias);
+        CuentaServicio cuentaServicio= new CuentaServicioImpl();
+        MenuOperacionesBancarias menuOperacionesBancarias= new MenuOperacionesBancariasImpl(clienteServicio,cuentaServicio);
+        MenuCliente menuCliente = new MenuClienteImpl(clienteServicio);
+        MenuCuenta menuCuenta = new MenuCuentaImpl(menuCliente, menuOperacionesBancarias, cuentaServicio);
+        MenuPrincipal menuPrincipal= new MenuPrincipalImpl(menuCliente, menuCuenta, menuOperacionesBancarias,clienteServicio);
         menuPrincipal.iniciar();
         InputConsoleService.closeScanner();
     }
