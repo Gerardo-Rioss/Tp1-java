@@ -9,7 +9,24 @@ import java.util.ArrayList;
 import java.util.List;
 public class BdClientes {
     public static ArrayList<Cliente> clientes = initClients();
+    public Double tasaInteres=25.6;
+    public Double limiteSobregiro= 5000.0;
 
+    public void setTasaInteres(Double tasaInteres) {
+        this.tasaInteres = tasaInteres;
+    }
+
+    public void setLimiteSobregiro(Double limiteSobregiro) {
+        this.limiteSobregiro = limiteSobregiro;
+    }
+
+    public Double getTasaInteres() {
+        return tasaInteres;
+    }
+
+    public Double getLimiteSobregiro() {
+        return limiteSobregiro;
+    }
 
     public static ArrayList<Cliente> initClients(){
 
@@ -37,16 +54,6 @@ public class BdClientes {
             }
         }
         return null;
-    }
-    public static Integer obtenerNuevoNumeroCliente(){
-        int ultimoNumeroUnico=1;
-        for (Cliente cliente : clientes){
-            int numeroUnicoCliente = cliente.getNumeroUnico();
-            if(numeroUnicoCliente>ultimoNumeroUnico){
-                ultimoNumeroUnico=numeroUnicoCliente;
-            }
-        }
-        return ultimoNumeroUnico+1;
     }
 
 

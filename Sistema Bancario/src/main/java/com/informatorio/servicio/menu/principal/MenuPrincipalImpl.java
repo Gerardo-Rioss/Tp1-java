@@ -6,20 +6,18 @@ import com.informatorio.entrada.InputConsoleService;
 import com.informatorio.servicio.cliente.ClienteServicio;
 import com.informatorio.servicio.cuenta.CuentaServicio;
 import com.informatorio.servicio.menu.cliente.MenuCliente;
+import com.informatorio.servicio.menu.cuenta.MenuCuenta;
 
 public class MenuPrincipalImpl implements MenuPrincipal {
     private MenuCliente menuCliente;
-
-
+    private MenuCuenta menuCuenta;
     private ClienteServicio clienteServicio;
     private CuentaServicio cuentaServicio;
-
-
-    public MenuPrincipalImpl(MenuCliente menuCliente,   ClienteServicio clienteServicio, CuentaServicio cuentaServicio) {
+    public MenuPrincipalImpl(MenuCliente menuCliente,   ClienteServicio clienteServicio, CuentaServicio cuentaServicio,MenuCuenta menuCuenta) {
         this.menuCliente = menuCliente;
         this.clienteServicio= clienteServicio;
         this.cuentaServicio= cuentaServicio;
-
+        this.menuCuenta=menuCuenta;
     }
 
     @Override
@@ -60,7 +58,7 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                     break;
                 case 3:
                     // depositar
-                    cuentaServicio.depositar(menuCliente.seleccionarCliente(),menuCliente.ingreseMontoDepositar(),menuCliente.ingreseNroCuenta());
+                    cuentaServicio.depositar(menuCliente.seleccionarCliente(),menuCliente.ingreseMontoDepositar(),menuCliente.ingreseNroCuentaDepositar());
                     break;
                 case 4:
                     // retirar
@@ -79,24 +77,29 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                     }else {
                         System.out.println("Opcion de cuenta invalida.-");
                     }
-
-
-
                     break;
                 case 7:
                     // eliminar cuenta
+                    cuentaServicio.eliminarCuenta(menuCliente.seleccionarCliente(),menuCliente.ingreseNroCuentaEliminar());
                     break;
                 case 8:
                 //Exportar CSV Cuentas Bancarias
                 break ;
                 case 9:
+                    menuCuenta.mostrarTasaInteresActual();
+                    cuentaServicio.modificarTasaInteres(menuCuenta.ingreseNuevaTasaInteres());
+                    menuCuenta.mostrarTasaInteresActual();
                     // Modificar Interes Cuenta Ahorro
+
                     break;
                 case 10:
                     // Agregar Interes a las Cuentas Ahorro
                     break;
                 case 11:
                     //Modificar limite sobregiro de las Cuentas Corrientes
+                    menuCuenta.mostrarLimiteSobregiroActual();
+                    cuentaServicio.modificarLimiteSobregiro(menuCuenta.ingreseNuevoLimiteSobreGiro());
+                    menuCuenta.mostrarLimiteSobregiroActual();
                     break;
                 case 0:
                     System.out.println("Saliendo del programa. ¡Hasta luego!");

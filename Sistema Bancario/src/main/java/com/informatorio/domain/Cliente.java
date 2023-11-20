@@ -77,7 +77,7 @@ public class Cliente {
             }
             return ultimoNumeroCuentaActual;
         } catch(NullPointerException e){
-            return ultimoNumeroCuentaActual;
+            return 0;
         }
 
     }

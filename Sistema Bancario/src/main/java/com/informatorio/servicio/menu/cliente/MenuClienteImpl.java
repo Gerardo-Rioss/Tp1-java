@@ -10,7 +10,8 @@ public class MenuClienteImpl implements MenuCliente {
     public static final String MENSAJE_INGRESE_NOMBRE_TEMPLATE="Ingrese el nombre del cliente: ";
     public static final String MENSAJE_INGRESE_DIRECCION_TEMPLATE="Ingrese la direccion del cliente: ";
     public static final String MENSAJE_INGRESAR_CLIENTE_TEMPLATE = "Ingrese el numero de cliente: ";
-    public static final String MENSAJE_INGRESE_NUMERO_CUENTA_TEMPLATE="Ingrese el numero de cuenta en la cual quierer depositar: ";
+    public static final String MENSAJE_INGRESE_NUMERO_CUENTA_DEPOSITAR_TEMPLATE="Ingrese el numero de cuenta en la cual quierer depositar: ";
+    public static final String MENSAJE_INGRESE_NUMERO_CUENTA_ELIMINAR_TEMPLATE="Ingrese el numero de cuenta que quiere eliminar: ";
     public static final String MENSAJE_INGRESE_MONTO_DEPOSITAR_TEMPLATE="Ingrese el monto a depositar: ";
     public static final String MENSAJE_INGRESE_MONTO_INICIAL_TEMPLATE="Ingrese el monto inicial para la cuenta: ";
 
@@ -59,8 +60,14 @@ public class MenuClienteImpl implements MenuCliente {
     }
 
     @Override
-    public int ingreseNroCuenta() {
-        System.out.print(MENSAJE_INGRESE_NUMERO_CUENTA_TEMPLATE);
+    public int ingreseNroCuentaDepositar() {
+        System.out.print(MENSAJE_INGRESE_NUMERO_CUENTA_DEPOSITAR_TEMPLATE);
+        return InputConsoleService.getScanner().nextInt();
+    }
+
+    @Override
+    public int ingreseNroCuentaEliminar() {
+        System.out.print(MENSAJE_INGRESE_NUMERO_CUENTA_ELIMINAR_TEMPLATE);
         return InputConsoleService.getScanner().nextInt();
     }
 
