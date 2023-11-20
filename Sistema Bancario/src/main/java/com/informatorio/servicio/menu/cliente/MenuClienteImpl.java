@@ -3,22 +3,15 @@ package com.informatorio.servicio.menu.cliente;
 
 import com.informatorio.basededatos.BdClientes;
 import com.informatorio.domain.Cliente;
-import com.informatorio.domain.Cuenta;
 import com.informatorio.entrada.InputConsoleService;
 import com.informatorio.servicio.cliente.ClienteServicio;
 
-import java.util.ArrayList;
-
-import static com.informatorio.basededatos.BdClientes.clientes;
-
 public class MenuClienteImpl implements MenuCliente {
-    private ClienteServicio clienteServicio;
-
-    public MenuClienteImpl(ClienteServicio clienteServicio) {
-        this.clienteServicio = clienteServicio;
-    }
-
+    public static final String MENSAJE_INGRESE_NOMBRE_TEMPLATE="Ingrese el nombre del cliente: ";
+    public static final String MENSAJE_INGRESE_DIRECCION_TEMPLATE="Ingrese la direccion del cliente: ";
     public static final String MENSAJE_INGRESAR_CLIENTE_TEMPLATE = "Ingrese el numero de cliente: ";
+    public static final String MENSAJE_INGRESE_NUMERO_CUENTA_TEMPLATE="Ingrese el numero de cuenta en la cual quierer depositar: ";
+    public static final String MENSAJE_INGRESE_MONTO_DEPOSITAR_TEMPLATE="Ingrese el monto a depositar: ";
 
     @Override
     public void mostrarClientes() {
@@ -30,17 +23,6 @@ public class MenuClienteImpl implements MenuCliente {
         }
         System.out.println(listaClientes);
     }
-
-    @Override
-    public void ingresarNuevoCliente() {
-        System.out.print("Ingrese el nombre del cliente: ");
-        String nombre = InputConsoleService.getScanner().nextLine();
-        System.out.print("Ingrese la dirección del cliente: ");
-        String direccion = InputConsoleService.getScanner().nextLine();
-        clienteServicio.crearCliente(nombre, direccion);
-    }
-
-
     @Override
     public Cliente seleccionarCliente() {
         mostrarClientes();
@@ -54,8 +36,38 @@ public class MenuClienteImpl implements MenuCliente {
 
     }
 
+    @Override
+    public int seleccionarTipoCuenta() {
+        System.out.println("Tipo de cuenta: ");
+        System.out.println("1. Cuenta Corriente");
+        System.out.println("2. Caja de Ahorro");
+        System.out.println("Ingrese una opcion");
+        return InputConsoleService.getScanner().nextInt();
+    }
 
+    @Override
+    public String ingresarNombre() {
+        System.out.print(MENSAJE_INGRESE_NOMBRE_TEMPLATE);
+        return InputConsoleService.getScanner().nextLine();
+    }
 
+    @Override
+    public String ingresarDireccion() {
+        System.out.print(MENSAJE_INGRESE_DIRECCION_TEMPLATE);
+        return InputConsoleService.getScanner().nextLine();
+    }
+
+    @Override
+    public int ingreseNroCuenta() {
+        System.out.print(MENSAJE_INGRESE_NUMERO_CUENTA_TEMPLATE);
+        return InputConsoleService.getScanner().nextInt();
+    }
+
+    @Override
+    public Double ingreseMonto() {
+        System.out.print(MENSAJE_INGRESE_MONTO_DEPOSITAR_TEMPLATE);
+        return InputConsoleService.getScanner().nextDouble();
+    }
 
 
 }

@@ -30,4 +30,20 @@ public class ClienteServicioImpl implements ClienteServicio {
         Cliente cliente = BdClientes.getClientByNumeroUnico(numeroCliente);
         return cliente;
     }
+
+    @Override
+    public void consultaSaldosCuentasTotal(Cliente cliente) {
+        System.out.println("===== Datos Cliente =====");
+        System.out.println("Nro CLiente: "+ cliente.getNumeroUnico()+", Nombre: "+ cliente.getNombre());
+        try {
+            System.out.println("===== Cuentas =====");
+            for (Cuenta cuenta : cliente.getCuentas()) {
+                System.out.println("NroCuenta: " + cuenta.getNumeroCuenta() + ", Tipo: " + cuenta.getTipo() + ", Saldo: " + cuenta.getSaldo());
+            }
+            System.out.println("Saldo total: " + cliente.getSaldoTotal());
+        } catch (Exception e) {
+            System.out.println("No tiene ninguna cuenta asignada.-");
+        }
+        System.out.println();
+    }
 }

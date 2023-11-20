@@ -8,6 +8,7 @@ import com.informatorio.domain.Cliente;
 import com.informatorio.entrada.InputConsoleService;
 import com.informatorio.servicio.cliente.ClienteServicio;
 import com.informatorio.servicio.cliente.ClienteServicioImpl;
+import com.informatorio.servicio.cuenta.CuentaServicio;
 import com.informatorio.servicio.menu.cliente.MenuCliente;
 import com.informatorio.servicio.menu.cliente.MenuClienteImpl;
 import com.informatorio.servicio.menu.cuenta.MenuCuenta;
@@ -18,15 +19,16 @@ import java.util.Optional;
 public class MenuPrincipalImpl implements MenuPrincipal {
     private MenuCliente menuCliente;
     private MenuCuenta menuCuenta;
-    private MenuOperacionesBancarias menuOperacionesBancarias;
+
     private ClienteServicio clienteServicio;
+    private CuentaServicio cuentaServicio;
 
 
-    public MenuPrincipalImpl(MenuCliente menuCliente, MenuCuenta menuCuenta, MenuOperacionesBancarias menuOperacionesBancarias, ClienteServicio clienteServicio) {
+    public MenuPrincipalImpl(MenuCliente menuCliente, MenuCuenta menuCuenta,  ClienteServicio clienteServicio, CuentaServicio cuentaServicio) {
         this.menuCliente = menuCliente;
         this.menuCuenta=menuCuenta;
-        this.menuOperacionesBancarias=menuOperacionesBancarias;
         this.clienteServicio= clienteServicio;
+        this.cuentaServicio= cuentaServicio;
 
     }
 
@@ -60,7 +62,7 @@ public class MenuPrincipalImpl implements MenuPrincipal {
             switch (opcion) {
                 case 1:
                     //Registrar nuevo cliente
-                    menuCliente.ingresarNuevoCliente();
+                    clienteServicio.crearCliente(menuCliente.ingresarNombre(),menuCliente.ingresarDireccion());
                     break;
                 case 2:
                     //Mostrar Lista de Clientes
@@ -68,7 +70,7 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                     break;
                 case 3:
                     // depositar
-                    menuOperacionesBancarias.ingreseDatosDeposito();
+                    cuentaServicio.depositar(menuCliente.seleccionarCliente(),menuCliente.ingreseMonto(),menuCliente.ingreseNroCuenta());
                     break;
                 case 4:
                     // retirar
@@ -76,7 +78,7 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                 case 5:
                     //Consultar Saldo
                     Cliente cliente = menuCliente.seleccionarCliente();
-                    menuOperacionesBancarias.consultarSaldos(cliente);
+                    clienteServicio.consultaSaldosCuentasTotal(cliente);
                     break;
                 case 6:
                     //Crear Cuenta

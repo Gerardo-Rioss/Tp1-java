@@ -4,8 +4,12 @@ import com.informatorio.domain.Cliente;
 
 public interface MenuCliente {
     void mostrarClientes();
-    void ingresarNuevoCliente();
 
     Cliente seleccionarCliente();
+    public int seleccionarTipoCuenta();
+    String ingresarNombre();
+    String ingresarDireccion();
+    public int ingreseNroCuenta();
+    public Double ingreseMonto();
 
 }

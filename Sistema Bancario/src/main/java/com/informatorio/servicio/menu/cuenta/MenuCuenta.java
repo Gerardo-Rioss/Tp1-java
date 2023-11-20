@@ -4,7 +4,7 @@ import com.informatorio.domain.Cliente;
 
 public interface MenuCuenta {
     void crearCuenta();
-    int seleccionarTipoCuenta();
+
 
 
 }

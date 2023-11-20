@@ -29,10 +29,9 @@ public class App
 
         ClienteServicio clienteServicio= new ClienteServicioImpl();
         CuentaServicio cuentaServicio= new CuentaServicioImpl();
-        MenuOperacionesBancarias menuOperacionesBancarias= new MenuOperacionesBancariasImpl(clienteServicio,cuentaServicio);
-        MenuCliente menuCliente = new MenuClienteImpl(clienteServicio);
-        MenuCuenta menuCuenta = new MenuCuentaImpl(menuCliente, menuOperacionesBancarias, cuentaServicio);
-        MenuPrincipal menuPrincipal= new MenuPrincipalImpl(menuCliente, menuCuenta, menuOperacionesBancarias,clienteServicio);
+        MenuCliente menuCliente = new MenuClienteImpl();
+        MenuCuenta menuCuenta = new MenuCuentaImpl(menuCliente,  cuentaServicio,clienteServicio);
+        MenuPrincipal menuPrincipal= new MenuPrincipalImpl(menuCliente, menuCuenta,clienteServicio,cuentaServicio);
         menuPrincipal.iniciar();
         InputConsoleService.closeScanner();
     }
