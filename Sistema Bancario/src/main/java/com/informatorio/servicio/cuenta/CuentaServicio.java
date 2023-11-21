@@ -10,7 +10,8 @@ public interface CuentaServicio {
     void crearCuentaCorriente(Cliente cliente, Double montoInicial);
 
     void crearCuentaAhorro(Cliente cliente, Double montoInicial);
-    void depositar(Cliente cliente, Double monto, int nroCuenta);
+    void depositar(Cliente cliente,int nroCuenta, Double monto );
+    void retirar(Cliente cliente, int nroCuenta,Double monto);
     void eliminarCuenta(Cliente cliente, int numeroCuenta);
 
     void modificarTasaInteresCuentaAhorro(Double nuevoValor);

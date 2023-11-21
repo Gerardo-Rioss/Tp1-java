@@ -3,6 +3,7 @@ package com.informatorio.domain;
 import com.informatorio.enums.TipoCuenta;
 
 public class CuentaCorriente extends Cuenta {
+    private static final String SUPERA_LIMITE_SOBREGIRO_TEMPLATE= "No se puede retirar más que el límite de sobregiro";
     private Double limiteSobregiro;
     private String tipo;
 
@@ -28,7 +29,7 @@ public class CuentaCorriente extends Cuenta {
             this.depositar(-monto);
             return Boolean.TRUE;
         } else {
-            System.out.println("No se puede retirar más que el límite de sobregiro");
+            System.out.println(SUPERA_LIMITE_SOBREGIRO_TEMPLATE);
             return Boolean.FALSE;
         }
     }

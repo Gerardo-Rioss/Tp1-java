@@ -16,16 +16,16 @@ public class CuentaServicioImpl implements CuentaServicio {
     private static final String OPERACION_EXITOSA="Operacion realizada con éxito!!!.- ";
    @Override
     public int obtenerNuevoNumeroCuenta(Cliente cliente) {
-        int nuevoNumeroCuenta = 1;
+        int nuevoNumeroCuenta = 0;
         try {
             for (Cuenta cuenta : cliente.getCuentas()){
-                if (nuevoNumeroCuenta <= cuenta.getNumeroCuenta()) {
+                if (nuevoNumeroCuenta < cuenta.getNumeroCuenta()) {
                     nuevoNumeroCuenta = cuenta.getNumeroCuenta();
                 }
             }
-            return nuevoNumeroCuenta;
+            return nuevoNumeroCuenta + 1;
         } catch (NullPointerException e) {
-            return 1;
+            return 0;
         }
     }
     @Override
@@ -45,10 +45,26 @@ public class CuentaServicioImpl implements CuentaServicio {
     }
 
     @Override
-    public void depositar(Cliente cliente, Double monto, int nroCuenta) {
+    public void depositar(Cliente cliente,int nroCuenta, Double monto ) {
         for (Cuenta cuenta : cliente.getCuentas()){
             if (cuenta.getNumeroCuenta()== nroCuenta){
                 cuenta.depositar(monto);
+            }
+        }
+    }
+
+    @Override
+    public void retirar(Cliente cliente,int nroCuenta, Double monto ) {
+        for (Cuenta cuenta: cliente.getCuentas()){
+            if(cuenta.getNumeroCuenta()== nroCuenta) {
+                if (cuenta instanceof CuentaCorriente) {
+                    CuentaCorriente cuentaCorriente = (CuentaCorriente) cuenta;
+                    cuentaCorriente.retirar(monto);
+                }
+                if (cuenta instanceof CuentaAhorro) {
+                    CuentaAhorro cuentaAhorro = (CuentaAhorro) cuenta;
+                    cuentaAhorro.retirar(monto);
+                }
             }
         }
     }

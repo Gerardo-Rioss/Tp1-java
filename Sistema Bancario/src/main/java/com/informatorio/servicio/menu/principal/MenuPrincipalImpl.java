@@ -61,10 +61,11 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                     break;
                 case 3:
                     // depositar
-                    cuentaServicio.depositar(menuCliente.seleccionarCliente(),menuCliente.ingreseMontoDepositar(),menuCliente.ingreseNroCuentaDepositar());
+                    cuentaServicio.depositar(menuCliente.seleccionarCliente(),menuCliente.ingreseNroCuentaDepositar(),menuCliente.ingreseMontoDepositar());
                     break;
                 case 4:
                     // retirar
+                    cuentaServicio.retirar(menuCliente.seleccionarCliente(),menuCliente.ingreseNroCuentaRetirar(),menuCliente.ingreseMontoRetirar());
                     break;
                 case 5:
                     //Consultar Saldo
@@ -86,8 +87,8 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                     cuentaServicio.eliminarCuenta(menuCliente.seleccionarCliente(),menuCliente.ingreseNroCuentaEliminar());
                     break;
                 case 8:
-                //Exportar CSV Cuentas Bancarias
-                break ;
+                    //Exportar CSV Cuentas Bancarias
+                    break ;
                 case 9:
                     // Modificar Interes Cuenta Ahorro
                     menuCuenta.mostrarTasaInteresActual();
@@ -102,7 +103,6 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                     }else{
                         System.out.println(MENSAJE_OPCION_INVALIDA_TEMPLATE);
                     }
-
                     break;
                 case 11:
                     //Modificar limite sobregiro de las Cuentas Corrientes

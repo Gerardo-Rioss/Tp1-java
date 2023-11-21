@@ -12,4 +12,6 @@ public interface MenuCliente {
     public int ingreseNroCuentaEliminar();
     public Double ingreseMontoDepositar();
     public Double ingreseMontoInicial();
+    public Double ingreseMontoRetirar();
+    public int ingreseNroCuentaRetirar();
 }

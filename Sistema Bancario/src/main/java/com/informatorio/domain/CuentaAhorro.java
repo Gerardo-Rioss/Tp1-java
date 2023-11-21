@@ -5,8 +5,7 @@ import com.informatorio.enums.TipoCuenta;
 public class CuentaAhorro extends Cuenta {
     private Double tasaInteres;
     private String tipo;
-
-
+    private static final String SALDO_NO_DISPONIBLE_TEMPLATE= "No se puede retirar más que el saldo disponible";
     public CuentaAhorro() {
     }
     public CuentaAhorro(int numeroCuenta, Cliente cliente, Double saldo, Double tasaInteres) {
@@ -33,7 +32,7 @@ public class CuentaAhorro extends Cuenta {
         if (monto <= this.getSaldo()) {
            this.depositar(-monto);
         } else {
-            System.out.println("No se puede retirar más que el saldo disponible");
+            System.out.println(SALDO_NO_DISPONIBLE_TEMPLATE);
         }
         return null;
     }
