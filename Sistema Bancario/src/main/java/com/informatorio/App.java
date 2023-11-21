@@ -23,6 +23,7 @@ public class App
         BdClientes.initClients();
         InputConsoleService.createScanner();
         Banco banco= crearBanco();
+        
         ClienteServicio clienteServicio= new ClienteServicioImpl(banco);
         CuentaServicio cuentaServicio= new CuentaServicioImpl(banco);
         MenuCliente menuCliente = new MenuClienteImpl(banco);
