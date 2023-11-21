@@ -13,8 +13,10 @@ public interface CuentaServicio {
     void depositar(Cliente cliente, Double monto, int nroCuenta);
     void eliminarCuenta(Cliente cliente, int numeroCuenta);
 
-    void modificarTasaInteres(Double nuevoValor);
+    void modificarTasaInteresCuentaAhorro(Double nuevoValor);
+
     void modificarLimiteSobregiro(Double nuevoValor);
+    void agregarInteresesCuentasAhorro();
 
 
 }

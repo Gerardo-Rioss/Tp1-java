@@ -5,18 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce83c69a-8b3d-4f98-bf59-0ebb13ac3919" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/cuenta/MenuCuenta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/cuenta/MenuCuentaImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/basededatos/BdClientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/basededatos/BdClientes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/domain/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/domain/Banco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/domain/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/domain/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/cliente/ClienteServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/cliente/ClienteServicio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/cliente/ClienteServicioImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/cliente/ClienteServicioImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/cuenta/CuentaServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/cuenta/CuentaServicio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/cuenta/CuentaServicioImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/cuenta/CuentaServicioImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/cliente/MenuCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/cliente/MenuCliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/cliente/MenuClienteImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/cliente/MenuClienteImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/cuenta/MenuCuenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/cuenta/MenuCuenta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/cuenta/MenuCuentaImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/cuenta/MenuCuentaImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/principal/MenuPrincipalImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/menu/principal/MenuPrincipalImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

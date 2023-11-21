@@ -1,6 +1,7 @@
 package com.informatorio.servicio.cuenta;
 
 import com.informatorio.domain.*;
+import com.informatorio.enums.TipoCuenta;
 
 
 public class CuentaServicioImpl implements CuentaServicio {
@@ -11,7 +12,8 @@ public class CuentaServicioImpl implements CuentaServicio {
     }
 
     private static final String CUENTA_CREADA_EXITOSA="Cuenta exitosamente. Número único de cuenta: ";
-private static final String CUENTA_ELIMINADA_EXITOSA="Cuenta elimininada exitosamente.- ";
+    private static final String CUENTA_ELIMINADA_EXITOSA="Cuenta elimininada exitosamente.- ";
+    private static final String OPERACION_EXITOSA="Operacion realizada con éxito!!!.- ";
    @Override
     public int obtenerNuevoNumeroCuenta(Cliente cliente) {
         int nuevoNumeroCuenta = 1;
@@ -64,12 +66,44 @@ private static final String CUENTA_ELIMINADA_EXITOSA="Cuenta elimininada exitosa
 
 
     @Override
-    public void modificarTasaInteres(Double nuevoValor) {
+    public void modificarTasaInteresCuentaAhorro(Double nuevoValor) {
         banco.setTasaInteres(nuevoValor);
+        for (Cliente cliente : banco.getClientes()) {
+            for (Cuenta cuenta : cliente.getCuentas()) {
+                if (cuenta instanceof CuentaAhorro) {
+                    CuentaAhorro cuentaAhorro = (CuentaAhorro) cuenta;
+                    cuentaAhorro.setTasaInteres(nuevoValor);
+                }
+            }
+
+        }
     }
+
     @Override
     public void modificarLimiteSobregiro(Double nuevoValor) {
         banco.setLimiteSobregiro(nuevoValor);
+        for (Cliente cliente : banco.getClientes()) {
+            for (Cuenta cuenta : cliente.getCuentas()) {
+                if (cuenta instanceof CuentaCorriente) {
+                    CuentaCorriente cuentaCorriente = (CuentaCorriente) cuenta;
+                    cuentaCorriente.setLimiteSobregiro(nuevoValor);
+                }
+            }
+
+        }
+    }
+
+    @Override
+    public void agregarInteresesCuentasAhorro() {
+        for (Cliente cliente : banco.getClientes()) {
+            for (Cuenta cuenta : cliente.getCuentas()) {
+                if (cuenta instanceof CuentaAhorro) {
+                    CuentaAhorro cuentaAhorro = (CuentaAhorro) cuenta;
+                    cuentaAhorro.calcularAgregarInteres();
+                }
+            }
+
+        }
+        System.out.println(OPERACION_EXITOSA);
     }
 }
-

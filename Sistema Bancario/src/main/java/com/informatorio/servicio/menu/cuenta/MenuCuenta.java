@@ -5,5 +5,6 @@ public interface MenuCuenta {
     void mostrarLimiteSobregiroActual();
     double ingreseNuevaTasaInteres();
     double ingreseNuevoLimiteSobreGiro();
+    int agregarInteresesCuentasAhorro();
 
 }

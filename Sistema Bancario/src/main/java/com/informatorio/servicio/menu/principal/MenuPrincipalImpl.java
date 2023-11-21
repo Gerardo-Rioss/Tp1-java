@@ -9,6 +9,9 @@ import com.informatorio.servicio.menu.cliente.MenuCliente;
 import com.informatorio.servicio.menu.cuenta.MenuCuenta;
 
 public class MenuPrincipalImpl implements MenuPrincipal {
+    private static final String MENSAJE_SALIDA_SISTEMA_TEMPLATE= "Saliendo del programa. ¡Hasta luego!";
+    private static final String MENSAJE_OPCION_INVALIDA_TEMPLATE= "Opción no válida. Por favor, vuelva a intentarlo.";
+
     private MenuCliente menuCliente;
     private MenuCuenta menuCuenta;
     private ClienteServicio clienteServicio;
@@ -37,7 +40,7 @@ public class MenuPrincipalImpl implements MenuPrincipal {
             System.out.println("8. Exportar CSV Cuentas Bancarias");
             System.out.println("===== Banco Administracion =====");
             System.out.println("9. Modificar Interes Cuenta Ahorro");
-            System.out.println("10. Agregar Interes a las Cuentas Ahorro");
+            System.out.println("10. Agregar Intereses a las cuentas ");
             System.out.println("11. Modificar limite sobregiro de las Cuentas Corrientes");
             System.out.println("=============================");
             System.out.println("0. Salir");
@@ -75,7 +78,7 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                     } else if (tipo == 2) {
                         cuentaServicio.crearCuentaAhorro(menuCliente.seleccionarCliente(),menuCliente.ingreseMontoInicial());
                     }else {
-                        System.out.println("Opcion de cuenta invalida.-");
+                        System.out.println(MENSAJE_OPCION_INVALIDA_TEMPLATE);
                     }
                     break;
                 case 7:
@@ -86,14 +89,20 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                 //Exportar CSV Cuentas Bancarias
                 break ;
                 case 9:
-                    menuCuenta.mostrarTasaInteresActual();
-                    cuentaServicio.modificarTasaInteres(menuCuenta.ingreseNuevaTasaInteres());
-                    menuCuenta.mostrarTasaInteresActual();
                     // Modificar Interes Cuenta Ahorro
-
+                    menuCuenta.mostrarTasaInteresActual();
+                    cuentaServicio.modificarTasaInteresCuentaAhorro(menuCuenta.ingreseNuevaTasaInteres());
+                    menuCuenta.mostrarTasaInteresActual();
                     break;
                 case 10:
                     // Agregar Interes a las Cuentas Ahorro
+                    menuCuenta.mostrarTasaInteresActual();
+                    if (menuCuenta.agregarInteresesCuentasAhorro()== 1 ){
+                        cuentaServicio.agregarInteresesCuentasAhorro();
+                    }else{
+                        System.out.println(MENSAJE_OPCION_INVALIDA_TEMPLATE);
+                    }
+
                     break;
                 case 11:
                     //Modificar limite sobregiro de las Cuentas Corrientes
@@ -102,10 +111,10 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                     menuCuenta.mostrarLimiteSobregiroActual();
                     break;
                 case 0:
-                    System.out.println("Saliendo del programa. ¡Hasta luego!");
+                    System.out.println(MENSAJE_SALIDA_SISTEMA_TEMPLATE);
                     break;
                 default:
-                    System.out.println("Opción no válida. Por favor, seleccione nuevamente.");
+                    System.out.println(MENSAJE_OPCION_INVALIDA_TEMPLATE);
                     break;
 
             }

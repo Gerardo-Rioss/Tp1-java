@@ -1,9 +1,7 @@
 package com.informatorio.servicio.cliente;
 
 import com.informatorio.basededatos.BdClientes;
-import com.informatorio.domain.Banco;
-import com.informatorio.domain.Cliente;
-import com.informatorio.domain.Cuenta;
+import com.informatorio.domain.*;
 
 import java.util.ArrayList;
 
@@ -30,11 +28,7 @@ public class ClienteServicioImpl implements ClienteServicio {
 
     }
 
-    @Override
-    public Cliente getClientePorNumero(int numeroCliente) {
-        Cliente cliente= banco.getClientByNumeroUnico(numeroCliente);
-        return cliente;
-    }
+
 
     @Override
     public void consultaSaldosCuentasTotal(Cliente cliente) {
@@ -43,7 +37,15 @@ public class ClienteServicioImpl implements ClienteServicio {
         try {
             System.out.println("===== Cuentas =====");
             for (Cuenta cuenta : cliente.getCuentas()) {
-                System.out.println("NroCuenta: " + cuenta.getNumeroCuenta() + ", Tipo: " + cuenta.getTipo() + ", Saldo: " + cuenta.getSaldo());
+                System.out.print("NroCuenta: " + cuenta.getNumeroCuenta() + ", Tipo: " + cuenta.getTipo() + ", Saldo: " + cuenta.getSaldo());
+                if (cuenta instanceof CuentaAhorro) {
+                    CuentaAhorro cuentaAhorro = (CuentaAhorro) cuenta;
+                    System.out.println(", Tasa Interes: " +cuentaAhorro.getTasaInteres());
+                }
+                if (cuenta instanceof CuentaCorriente) {
+                    CuentaCorriente cuentaCorriente = (CuentaCorriente) cuenta;
+                    System.out.println(", Limite sobregiro: " +cuentaCorriente.getLimiteSobregiro());
+                }
             }
             System.out.println("Saldo total: " + cliente.getSaldoTotal());
         } catch (Exception e) {

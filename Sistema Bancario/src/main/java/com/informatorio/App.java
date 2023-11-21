@@ -25,7 +25,7 @@ public class App
         Banco banco= crearBanco();
         ClienteServicio clienteServicio= new ClienteServicioImpl(banco);
         CuentaServicio cuentaServicio= new CuentaServicioImpl(banco);
-        MenuCliente menuCliente = new MenuClienteImpl();
+        MenuCliente menuCliente = new MenuClienteImpl(banco);
         MenuCuenta menuCuenta= new MenuCuentaImpl(banco);
         MenuPrincipal menuPrincipal= new MenuPrincipalImpl(menuCliente,clienteServicio,cuentaServicio,menuCuenta );
         menuPrincipal.iniciar();
