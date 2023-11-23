@@ -4,6 +4,8 @@ import com.informatorio.basededatos.BdClientes;
 
 import com.informatorio.domain.Banco;
 import com.informatorio.entrada.InputConsoleService;
+import com.informatorio.servicio.archivos.ArchivoServicio;
+import com.informatorio.servicio.archivos.ArchivoServicioImpl;
 import com.informatorio.servicio.cliente.ClienteServicio;
 import com.informatorio.servicio.cliente.ClienteServicioImpl;
 import com.informatorio.servicio.cuenta.CuentaServicio;
@@ -23,12 +25,12 @@ public class App
         BdClientes.initClients();
         InputConsoleService.createScanner();
         Banco banco= crearBanco();
-        
+        ArchivoServicio archivoServicio = new ArchivoServicioImpl();
         ClienteServicio clienteServicio= new ClienteServicioImpl(banco);
         CuentaServicio cuentaServicio= new CuentaServicioImpl(banco);
         MenuCliente menuCliente = new MenuClienteImpl(banco);
         MenuCuenta menuCuenta= new MenuCuentaImpl(banco);
-        MenuPrincipal menuPrincipal= new MenuPrincipalImpl(menuCliente,clienteServicio,cuentaServicio,menuCuenta );
+        MenuPrincipal menuPrincipal= new MenuPrincipalImpl(menuCliente,clienteServicio,cuentaServicio,menuCuenta,archivoServicio,banco );
         menuPrincipal.iniciar();
         InputConsoleService.closeScanner();
     }

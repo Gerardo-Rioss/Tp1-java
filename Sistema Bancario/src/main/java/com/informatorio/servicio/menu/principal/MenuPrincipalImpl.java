@@ -2,7 +2,9 @@ package com.informatorio.servicio.menu.principal;
 
 
 
+import com.informatorio.domain.Banco;
 import com.informatorio.entrada.InputConsoleService;
+import com.informatorio.servicio.archivos.ArchivoServicio;
 import com.informatorio.servicio.cliente.ClienteServicio;
 import com.informatorio.servicio.cuenta.CuentaServicio;
 import com.informatorio.servicio.menu.cliente.MenuCliente;
@@ -16,11 +18,15 @@ public class MenuPrincipalImpl implements MenuPrincipal {
     private MenuCuenta menuCuenta;
     private ClienteServicio clienteServicio;
     private CuentaServicio cuentaServicio;
-    public MenuPrincipalImpl(MenuCliente menuCliente,   ClienteServicio clienteServicio, CuentaServicio cuentaServicio,MenuCuenta menuCuenta) {
+    private ArchivoServicio archivoServicio;
+    private Banco banco;
+    public MenuPrincipalImpl(MenuCliente menuCliente,   ClienteServicio clienteServicio, CuentaServicio cuentaServicio,MenuCuenta menuCuenta,ArchivoServicio archivoServicio, Banco banco) {
         this.menuCliente = menuCliente;
         this.clienteServicio= clienteServicio;
         this.cuentaServicio= cuentaServicio;
         this.menuCuenta=menuCuenta;
+        this.archivoServicio=archivoServicio;
+        this.banco=banco;
     }
 
     @Override
@@ -88,6 +94,10 @@ public class MenuPrincipalImpl implements MenuPrincipal {
                     break;
                 case 8:
                     //Exportar CSV Cuentas Bancarias
+                    System.out.println("Exportando Clientes");
+                    archivoServicio.exportarClientesACsv(banco.getClientes(),"clientes.csv");
+
+                    //archivosServicio.exportarProductosACsv(BdProductos.productos,"productos.csv");
                     break ;
                 case 9:
                     // Modificar Interes Cuenta Ahorro
