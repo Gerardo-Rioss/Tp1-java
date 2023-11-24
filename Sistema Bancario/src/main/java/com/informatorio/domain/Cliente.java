@@ -67,20 +67,7 @@ public class Cliente {
         return saldoTotal;
     }
 
-    public int getUltimoNumeroCuenta() {
-        int ultimoNumeroCuentaActual = 0;
-        try {
-            for (Cuenta cuenta : this.cuentas) {
-                if (ultimoNumeroCuentaActual <= cuenta.getNumeroCuenta()) {
-                    ultimoNumeroCuentaActual = cuenta.getNumeroCuenta();
-                }
-            }
-            return ultimoNumeroCuentaActual;
-        } catch(NullPointerException e){
-            return 0;
-        }
 
-    }
 
 
 }

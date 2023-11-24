@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce83c69a-8b3d-4f98-bf59-0ebb13ac3919" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.$Diagrama de clases - Sistema Bancario.drawio.bkp" beforeDir="false" afterPath="$PROJECT_DIR$/.$Diagrama de clases - Sistema Bancario.drawio.bkp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/recursos/clientes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/recursos/clientes.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/archivos/ArchivoServicioImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/servicio/archivos/ArchivoServicioImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diagrama de clases - Sistema Bancario.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/Diagrama de clases - Sistema Bancario.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/domain/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema Bancario/src/main/java/com/informatorio/domain/Cliente.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
