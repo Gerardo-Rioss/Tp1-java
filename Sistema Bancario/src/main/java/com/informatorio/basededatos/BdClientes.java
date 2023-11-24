@@ -19,7 +19,14 @@ public class BdClientes {
         Cuenta cuenta2 = new CuentaCorriente(2,cliente1,500.0,5000.0);
         cliente1.agregarCuenta(cuenta1);
         cliente1.agregarCuenta(cuenta2);
-
+        Cuenta cuenta3 = new CuentaAhorro(1,cliente2,10000.0,26.5);
+        Cuenta cuenta4 = new CuentaCorriente(2,cliente2,600000.0,5000.0);
+        cliente2.agregarCuenta(cuenta3);
+        cliente2.agregarCuenta(cuenta4);
+        Cuenta cuenta5 = new CuentaAhorro(1,cliente3,15000.0,26.5);
+        Cuenta cuenta6 = new CuentaCorriente(2,cliente3,6700000.0,5000.0);
+        cliente3.agregarCuenta(cuenta5);
+        cliente3.agregarCuenta(cuenta6);
         ArrayList<Cliente> clientes = new ArrayList<>();
         clientes.add(cliente1);
         clientes.add(cliente2);
